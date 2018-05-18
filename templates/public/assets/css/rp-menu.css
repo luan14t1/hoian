@@ -1,0 +1,191 @@
+.btn15 {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 0px;
+  right: 0;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  cursor: pointer;
+  cursor: hand;
+  width: 50px !important;
+  right: 0px !important;
+}
+.btn15.open{
+    z-index: 99999;
+}
+.btn15 .icon {
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  position: absolute;
+  height: 4px;
+  width: 30px;
+  top: 30px;
+  background-color: #fff;
+  border-radius: 0;
+  left: 11px;
+}
+.btn15 .icon:before {
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  position: absolute;
+  width: 30px;
+  height: 4px;
+  background-color: #fff;
+  content: "";
+  top: -10px;
+  border-radius: 0;
+}
+.btn15 .icon:after {
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  position: absolute;
+  width: 30px;
+  height: 4px;
+  background-color: #fff;
+  content: "";
+  top: 10px;
+  border-radius: 0;
+}
+.btn15.open .icon {
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  background: transparent;
+}
+.btn15.open .icon:before {
+  -webkit-transform: rotateZ(45deg) scaleX(1.25) translate(6.5px, 6.5px);
+          transform: rotateZ(45deg) scaleX(1.25) translate(6.5px, 6.5px);
+}
+.btn15.open .icon:after {
+  -webkit-transform: rotateZ(-45deg) scaleX(1.25) translate(6px, -6px);
+          transform: rotateZ(-45deg) scaleX(1.25) translate(6px, -6px);
+}
+
+
+#responsive-menu .close{position:absolute;top:2px;right:5px;font-size:26px;z-index:123;}
+#responsive-menu {
+    z-index: 1;
+    background: #381a11 url(../img/bg-menu-mobile.png) no-repeat bottom center;
+    width: 100%;
+    z-index: 1234;
+    left: 0;
+    border-top: 1px solid #ffffff;
+    display: none;
+    color: #d1d3d4;
+    padding: 0px 20px;
+    background-size: 100%;
+    padding-bottom: 100px;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    border-bottom-right-radius: 5px;
+    padding-top: 80px;
+    height: 100%;
+}
+#responsive-menu .search-mobile{
+    padding: 5px 0;
+    border-bottom: 1px solid #ffffff;
+}
+
+
+.search-mobile input::-webkit-input-placeholder {/* Chrome/Opera/Safari */
+  color: #d1d3d4;
+  font-family:Cambria;
+}
+
+.search-mobile input::-moz-placeholder {/* Firefox 19+ */
+  color: #d1d3d4;
+  font-family:Cambria;
+}
+
+.search-mobile input:-ms-input-placeholder {/* IE 10+ */
+  color: #d1d3d4;
+  font-family:Cambria;
+}
+
+.search-mobile input:-moz-placeholder {/* Firefox 18- */
+  color: #d1d3d4;
+  font-family:Cambria;
+}
+
+#responsive-menu div.toggle{
+    font-weight: bold;
+    padding: 15px 0;
+    border-bottom: 1px solid #ffffff;
+}
+#responsive-menu div.toggle-search{
+    font-size: 18px;
+}
+#responsive-menu .lang{
+    display: none;
+}
+#responsive-menu .lang ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    padding: 10px 0;
+}
+#responsive-menu .lang ul li{
+    padding: 5px 0;
+}
+#responsive-menu .lang ul li a{
+    color: #ccc;
+    font-size: 18px;
+}
+#responsive-menu .lang ul li.active a{
+    font-weight: bold;
+}
+#responsive-menu div.toggle i{    position: relative;
+    left: -9px;}
+#responsive-menu .search-mobile form{
+    position: relative;
+}
+#responsive-menu .search-mobile input{
+    border: 0;
+    background: transparent;
+    width: 100%;
+    padding: 10px 0px;
+}
+#responsive-menu .search-mobile button{
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: transparent;
+    border: 0;
+    width: 30px;
+    height: 40px;
+}
+#responsive-menu .search{position:relative;padding:0 5px;margin-top:25px;}
+#responsive-menu .search form{}
+#responsive-menu .search form input{width:100%;padding:5px;height:27px;border:1px solid rgba(204, 204, 204, 0.35);border-radius:0px;}
+#responsive-menu .search form button{position:absolute;right:5px;top:0;border:0;padding:3px 13px;background-color:black;color:#fff;font-size:15px;}
+#responsive-menu .search form button i{position:relative;top:2px;}
+#responsive-menu .content{}
+#responsive-menu .login-link{border:1px solid #ffffff;border-left:0;border-right:0;padding:15px 0}
+#responsive-menu .login-link a{
+    font-weight: bold;
+    color: #ccc;
+    font-size: 18px;
+    padding-right: 10px;
+    margin-right: 10px;
+    position: relative;
+}
+#responsive-menu .login-link a:after{content:"";width: 1px;height: 15px;position: absolute;right: 0;background: #ccc;top: 4px;}
+#responsive-menu .login-link a:last-child:after{display:none}
+#responsive-menu .content ul{list-style:none;}
+#responsive-menu .content > ul{padding:0;margin:0;list-style: none;}
+#responsive-menu .content .toggle-menu{float:right;cursor:hand;cursor:pointer;position:absolute;top: 22px;right:10px;font-size:11px;}
+#responsive-menu .content .toggle-menu i{font-size:17px}
+#responsive-menu .content .toggle-menu.active{}
+#responsive-menu .content ul li a{color: #ccc;font-size: 18px;text-decoration: none;font-weight: bold;}
+#responsive-menu .content ul li{-moz-transition:all 0.5s ease;-o-transition:all 0.5s ease;-ms-transition:all 0.5s ease;transition:all 0.5s ease;padding: 10px 0px;position:relative;cursor:hand;cursor:pointer;float:none;}
+#responsive-menu .content ul li:hover{/* background: #0A72B9; */}
+#responsive-menu .content ul li ul{display:none}
+#responsive-menu .content li li:first-child{border-top:1px solid rgba(247, 246, 246, 0.25);}
+#responsive-menu .content > ul > li ul{position:relative;top:9px;padding-left: 15px;}
+#responsive-menu .content > ul li ul li{text-indent:10px;}
+#responsive-menu .content > ul li ul li ul li{text-indent:20px}
+#responsive-menu .content > ul > li > ul > li > ul{}
+html.fixed body{position:fixed;overflow:hidden;height:100%}
+html.fixed header{position:fixed !important}

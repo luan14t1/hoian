@@ -60,6 +60,12 @@
 
   </script>
 
+<script type="text/javascript">
+			function confirmAction() {
+				return confirm("Bạn có chắc chắn muốn xóa?")
+			}
+</script>
+
   </body>
 </html>
 <?php ob_flush();?>

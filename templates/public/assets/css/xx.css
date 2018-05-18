@@ -1,0 +1,349 @@
+
+.mypage-alo-phone {
+    bottom: 0px!important;
+    background-color: transparent;
+    width: 110px;
+    height: 110px;
+    cursor: pointer;
+    z-index: 900000 !important;
+    position: absolute;
+    top: 0;
+    right: -27px;
+}
+ @media screen and (max-width:650px){
+	.mypage-alo-phone  {display:block!important;}
+}
+.animated.infinite {
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+.mypage-alo-ph-circle {
+    width: 90px;
+    height: 90px;
+    top: 12px;
+    left: 12px;
+    position: absolute;
+    background-color: transparent;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: 2px solid rgba(30, 30, 30, 0.4);
+    opacity: .1;
+    opacity: .5;
+}
+.zoomIn {
+    -webkit-animation-name: zoomIn;
+    animation-name: zoomIn;
+}
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+.mypage-alo-ph-circle-fill {
+    width: 60px;
+    height: 60px;
+    top: 28px;
+    left: 28px;
+    position: absolute;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: 2px solid transparent;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+    opacity: 1 !important;
+}
+.mypage-alo-ph-img-circle {
+    width: 56px;
+    height: 56px;
+    top: 30px;
+    left: 30px;
+    position: absolute;
+    background: rgba(30, 30, 30, 0.1) url(../svg/booking.svg) no-repeat center center;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: 2px solid transparent;
+    opacity: 1;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    background-size: 70%;
+}
+.tada {
+    -webkit-animation-name: tada;
+    animation-name: tada;
+}
+@-webkit-keyframes tada {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  10%, 20% {
+    -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%, 50%, 70%, 90% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%, 60%, 80% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes tada {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  10%, 20% {
+    -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%, 50%, 70%, 90% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%, 60%, 80% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+@-webkit-keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+    transform: scale3d(.3, .3, .3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+    transform: scale3d(.3, .3, .3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}  
+.mypage-alo-ph-circle {border-color: #ff9800;}
+                        .mypage-alo-ph-circle-fill {background-color: #FF9800;}
+                        .mypage-alo-ph-img-circle {background-color: #FF9800;transition: 0.4s ease;}.mypage-alo-phone:hover .mypage-alo-ph-circle {border-color: #af1f65;}
+                        .mypage-alo-phone:hover .mypage-alo-ph-circle-fill {background-color: #af1f65;}
+                        .mypage-alo-phone:hover .mypage-alo-ph-img-circle {background-color: #af1f65;}
+
+
+.nav-right .contents {
+    white-space:nowrap;
+    margin-left: -1em;
+    padding-left: 1em;
+}
+
+.nav-right .contents .inner {
+    background:#c3c;
+    width:0%;
+    overflow:hidden;
+    -webkit-transition: width 1s ease-in-out;
+    -moz-transition: width 1s ease-in-out;
+    -o-transition: width 1s ease-in-out;
+    transition: width 1s ease-in-out;
+}
+
+
+
+.nav-right.desktop  .item:hover .contents .inner,.nav-right.mobile  .item.active .contents .inner  {
+   
+    width:100%;
+}
+
+.nav-right  .item .contents .inner a{
+    color: #fff;
+    font-size: 20px;
+    padding: 0px 15px;
+}
+.nav-right .contents .inner {
+    background: #af1f65;
+    width: 0%;
+    overflow: hidden;
+    -webkit-transition: width 0.4s ease-in-out;
+    -moz-transition: width 0.4s ease-in-out;
+    -o-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    padding: 6px 0px;
+    color: #fff;
+    float: right;
+}
+.nav-right .item .toggle {
+    position: absolute;
+    top: 2px;
+    white-space: nowrap;
+    right: 46px;
+}
+.nav-right.mobile .item .toggle{width:0}
+.nav-right.mobile .item.active .toggle{width:auto}
+
+.nav-right{
+    position: fixed;
+    top: 200px;
+    right: 30px;
+    z-index: 12345;
+}
+.nav-right.mobile{top:120px;right:5px}
+.nav-right .item{
+    margin-bottom: -2px;
+    position: relative;
+}
+.nav-right.desktop  .item.has-toggle{overflow:hidden}
+.nav-right.desktop:hover  .item{overflow:inherit}
+.nav-right .item.phone{
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+.nav-right .item .icon {
+    background: #AF1F65;
+    border: 2px solid #fff;
+    display: block;
+    width: 45px;
+    padding: 3px;
+    height: 45px;
+    position: relative;
+}
+.nav-right .item .icon img {
+    max-width: 23px;
+    max-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 20px;
+}
+.nav-right .item  .toggle{
+   
+}
+.nav-right .item .has-toggle{}
+
+.nav-right.mobile .item.phone{zoom: 60%;}
+.mobile .mypage-alo-phone{
+    right: -42px;
+}
+
+@media(max-width:768px) {
+  .nav-right .item .icon {
+    background: #AF1F65;
+    border: 1px solid #fff;
+    display: block;
+    width: 35px;
+    padding: 3px;
+    height: 35px;
+    position: relative;
+  }
+
+  .nav-right.mobile {
+		top: 22%;
+		right: 4%;
+	}
+
+  .mobile .mypage-alo-phone {
+    right: -33px;
+  }
+
+  .nav-right .item .icon img {
+    max-width: 100%;
+    max-height: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
+
+  .nav-right .item .contents .inner a {
+    color: #fff;
+    font-size: 20px;
+    padding: 0 15px;
+    line-height: 161%;
+  }
+
+  .nav-right .contents .inner {
+    background: #af1f65;
+    width: 0%;
+    overflow: hidden;
+    -webkit-transition: width 0.4s ease-in-out;
+    -moz-transition: width 0.4s ease-in-out;
+    -o-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    padding: 0px;
+    color: #fff;
+    float: right;
+    height: 32px;
+    margin-top: 1px;
+  }
+
+  .nav-right .item .toggle {
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+    right: 34px;
+    height: 32px;
+  }
+}
