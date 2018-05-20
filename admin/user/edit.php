@@ -12,7 +12,38 @@
     $email = $user['email'];
     $role = $user['role'];
   }
-?>
+            if(isset($_POST['submit'])){
+              if( empty($_POST['username']) || empty($_POST['password']) || empty($_POST['repassword']) || empty($_POST['fullname']) || empty($_POST['email']) ){
+                  $tb="Nhập vào đầy đủ các trường!";
+        }
+        
+        else {
+          if(isset($_GET['idUser'])){
+            $id_user = $_GET['idUser'];
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            $repassword = $_POST['repassword'];
+            $fullname = $_POST['fullname'];
+            $email = $_POST['email'];
+            $role = $_POST['role'];
+            if ($role == 1) {
+              $role = "ADMIN";
+            }
+            else 
+              $role = "MOD";
+            if($password == $repassword){
+                $sql="UPDATE user SET username = '{$username}',  password = '{$password}' ,fullname = '{$fullname}' ,email = '{$email}' , role = '{$role}' WHERE id_user = '{$id_user}'";
+                $query = $conn->query($sql);
+                if($query){
+                    header('location: /hoian/admin/user?msg=editsuccess');
+                } 
+                else $tb = "Lỗi sửa thất bại";
+            }
+
+        }
+    }
+  }
+?>                    
 <section id="main-content">
           <section class="wrapper">
               <!-- page start-->
@@ -77,37 +108,4 @@
                 </div>
               </section>
             </section>
-  <?php
-            if(isset($_POST['submit'])){
-              if( empty($_POST['username']) || empty($_POST['password']) || empty($_POST['repassword']) || empty($_POST['fullname']) || empty($_POST['email']) ){
-                  $tb="Nhập vào đầy đủ các trường!";
-        }
-        
-        else {
-          if(isset($_GET['idUser'])){
-            $id_user = $_GET['idUser'];
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-            $repassword = $_POST['repassword'];
-            $fullname = $_POST['fullname'];
-            $email = $_POST['email'];
-            $role = $_POST['role'];
-            if ($role == 1) {
-              $role = "ADMIN";
-            }
-            else 
-              $role = "MOD";
-            if($password == $repassword){
-                $sql="UPDATE user SET username = '{$username}',  password = '{$password}' ,fullname = '{$fullname}' ,email = '{$email}' , role = '{$role}' WHERE id_user = '{$id_user}'";
-                $query = $conn->query($sql);
-                if($query){
-                    header('location: /hoian/admin/user?msg=editsuccess');
-                } 
-                else $tb = "Lỗi sửa thất bại";
-            }
-
-        }
-    }
-  }
-?>                    
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/admin/inc/footer.php'; ?>

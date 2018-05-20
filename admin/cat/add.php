@@ -1,6 +1,24 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/admin/inc/header.php'; ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/admin/inc/top_bar.php'; ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/admin/inc/left_bar.php'; ?>
+ <?php
+            if(isset($_POST['submit'])){
+              if( empty($_POST['name'])){
+                $tb="Nhập vào đầy đủ các trường!";
+        }
+
+        else {
+            $name = $_POST['name'];
+            $sql="INSERT INTO category(name) VALUES('{$name}')";
+            $query = $conn->query($sql);
+              if($query){
+                  header('location: /hoian/admin/cat?msg=addsuccess');
+                   }
+                  else $tb = "Lỗi Thêm thất bại";
+            }
+
+        }
+?>
 <section id="main-content">
           <section class="wrapper">
               <!-- page start-->
@@ -35,22 +53,4 @@
                 </div>
               </section>
             </section>
-  <?php
-            if(isset($_POST['submit'])){
-              if( empty($_POST['name'])){
-                  $tb="Nhập vào đầy đủ các trường!";
-        }
-
-        else {
-            $name = $_POST['name'];
-            $sql="INSERT INTO category(name) VALUES('{$name}')";
-            $query = $conn->query($sql);
-              if($query){
-                  header('location: /hoian/admin/cat?msg=addsuccess');
-                   }
-                  else $tb = "Lỗi Thêm thất bại";
-            }
-
-        }
-?>
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/admin/inc/footer.php'; ?>

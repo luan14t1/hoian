@@ -11,7 +11,42 @@
     $detail = $news['detail'];
     $picture = $news['picture'];
     $id_cat = $news['id_cat'];
-    ?>
+            if(isset($_POST['submit'])){
+              if( empty($_POST['title']) || empty($_POST['detail'])){
+                  $tb="Nhập vào đầy đủ các trường!";
+        }
+
+        else {
+            $title1 = $_POST['title'];
+            $detail1 = $_POST['detail'];
+            $id_cat1 = $_POST['id_cat'];
+            $id_user = $userLogin['id_user'];
+            if( empty($_FILES["picture"]["tmp_name"]) ){
+                $sql2="UPDATE new SET title = '{$title1}',id_cat = '{$id_cat1}',detail = '{$detail1}',id_user = '{$id_user}' WHERE id_new = {$id_new}";
+            } else{
+                $image_name = $_FILES['picture']['name'];
+                $arname = explode('.',$image_name);
+                $duoifile = end($arname);
+                $file_name = 'NEWS-'.time().'.'.$duoifile;
+                $filetmp = $_FILES['picture']['tmp_name'];
+                $filePath = $_SERVER['DOCUMENT_ROOT'].'/hoian/uploads/images/news/'.$file_name;
+                $result = move_uploaded_file($filetmp,$filePath) or die("Upload không thành công"); //('đường dẫn tạm','đường dẫn lưu file');
+                $sql2="UPDATE new SET title = '{$title1}',id_cat = '{$id_cat1}',picture = '{$file_name}',detail = '{$detail1}',id_user = '{$id_user}' WHERE id_new = {$id_new}";
+                unlink($_SERVER['DOCUMENT_ROOT'].'/hoian/uploads/images/news/'.$picture);
+            } 
+            $query2 = $conn->query($sql2);
+            if($query2){
+              header('location: /hoian/admin/news?msg=editsuccess');
+              }
+            else{ 
+                  $tb = "Lỗi sửa thất bại";
+                   header('location: /hoian/admin/news?msg=editsuccess1');
+               }
+            }
+
+        }
+    }
+?>
 <section id="main-content">
           <section class="wrapper">
               <!-- page start-->
@@ -81,41 +116,4 @@
                 </div>
               </section>
             </section>
-  <?php
-            if(isset($_POST['submit'])){
-              if( empty($_POST['title']) || empty($_POST['detail'])){
-                  $tb="Nhập vào đầy đủ các trường!";
-        }
-
-        else {
-            $title1 = $_POST['title'];
-            $detail1 = $_POST['detail'];
-            $id_cat1 = $_POST['id_cat'];
-            $id_user = $userLogin['id_user'];
-            if( empty($_FILES["picture"]["tmp_name"]) ){
-                $sql2="UPDATE new SET title = '{$title1}',id_cat = '{$id_cat1}',detail = '{$detail1}',id_user = '{$id_user}' WHERE id_new = {$id_new}";
-            } else{
-                $image_name = $_FILES['picture']['name'];
-                $arname = explode('.',$image_name);
-                $duoifile = end($arname);
-                $file_name = 'NEWS-'.time().'.'.$duoifile;
-                $filetmp = $_FILES['picture']['tmp_name'];
-                $filePath = $_SERVER['DOCUMENT_ROOT'].'/hoian/uploads/images/news/'.$file_name;
-                $result = move_uploaded_file($filetmp,$filePath) or die("Upload không thành công"); //('đường dẫn tạm','đường dẫn lưu file');
-                $sql2="UPDATE new SET title = '{$title1}',id_cat = '{$id_cat1}',picture = '{$file_name}',detail = '{$detail1}',id_user = '{$id_user}' WHERE id_new = {$id_new}";
-                unlink($_SERVER['DOCUMENT_ROOT'].'/hoian/uploads/images/news/'.$picture);
-            } 
-            $query2 = $conn->query($sql2);
-            if($query2){
-              header('location: /hoian/admin/news?msg=editsuccess');
-              }
-            else{ 
-                  $tb = "Lỗi sửa thất bại";
-                   header('location: /hoian/admin/news?msg=editsuccess1');
-               }
-            }
-
-        }
-    }
-?>
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/admin/inc/footer.php'; ?>

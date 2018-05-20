@@ -9,7 +9,26 @@
     $category = mysqli_fetch_assoc($query);
     $name = $category['name'];
   }
-?>
+         if(isset($_POST['submit'])){
+              if(empty($_POST['name'])){
+                  $tb="Nhập vào đầy đủ các trường!";
+        }
+        else {
+          if(isset($_GET['idCat'])){
+            $id_cat = $_GET['idCat'];
+            $name = $_POST['name'];
+            $sql="UPDATE category SET name = '{$name}' WHERE id_cat = '{$id_cat}'";
+            $query = $conn->query($sql);
+                if($query){
+                    header('location: /hoian/admin/cat?msg=editsuccess');
+                } 
+                else $tb = "Lỗi sửa thất bại";
+            }
+
+        }
+    }
+
+?>                    
 <section id="main-content">
           <section class="wrapper">
               <!-- page start-->
@@ -44,25 +63,4 @@
                 </div>
               </section>
             </section>
-  <?php
-            if(isset($_POST['submit'])){
-              if(empty($_POST['name'])){
-                  $tb="Nhập vào đầy đủ các trường!";
-        }
-        else {
-          if(isset($_GET['idCat'])){
-            $id_cat = $_GET['idCat'];
-            $name = $_POST['name'];
-            $sql="UPDATE category SET name = '{$name}' WHERE id_cat = '{$id_cat}'";
-            $query = $conn->query($sql);
-                if($query){
-                    header('location: /hoian/admin/cat?msg=editsuccess');
-                } 
-                else $tb = "Lỗi sửa thất bại";
-            }
-
-        }
-    }
-
-?>                    
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/admin/inc/footer.php'; ?>

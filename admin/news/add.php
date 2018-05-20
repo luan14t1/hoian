@@ -1,6 +1,41 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/admin/inc/header.php'; ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/admin/inc/top_bar.php'; ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/admin/inc/left_bar.php'; ?>
+
+<?php
+            if(isset($_POST['submit'])){
+              if( empty($_POST['title']) || empty($_POST['detail']) || ($_POST['id_cat']) == 0 ){
+                  $tb="Nhập vào đầy đủ các trường!";
+        }
+
+        else {
+            $title = $_POST['title'];
+            $detail = $_POST['detail'];
+            $id_cat = $_POST['id_cat'];
+            $id_user = $userLogin['id_user'];
+            if( empty($_FILES["picture"]["tmp_name"]) ){
+                $file_name = "123";
+            } else{
+                $image_name = $_FILES['picture']['name'];
+                $arname = explode('.',$image_name);
+                $duoifile = end($arname);
+                $file_name = 'NEWS-'.time().'.'.$duoifile;
+                $filetmp = $_FILES['picture']['tmp_name'];
+                $filePath = $_SERVER['DOCUMENT_ROOT'].'/hoian/uploads/images/news/'.$file_name;
+                $result = move_uploaded_file($filetmp,$filePath) or die("Upload không thành công"); //('đường dẫn tạm','đường dẫn lưu file');
+            } 
+            $sql="INSERT INTO new(title,id_cat,picture,detail,id_user) VALUES('{$title}','{$id_cat}','{$file_name}','{$detail}' ,'{$id_user}')";
+            $query = $conn->query($sql);
+            if($query){
+              header('location: /hoian/admin/news?msg=addsuccess');
+              }
+            else{ 
+                  $tb = "Lỗi Thêm thất bại";
+               }
+            }
+
+        }
+?>
 <section id="main-content">
           <section class="wrapper">
               <!-- page start-->
@@ -59,40 +94,4 @@
                 </div>
               </section>
             </section>
-  <?php
-            if(isset($_POST['submit'])){
-              if( empty($_POST['title']) || empty($_POST['detail']) || ($_POST['id_cat']) == 0 ){
-                  $tb="Nhập vào đầy đủ các trường!";
-                  header('location: /hoian/admin/news?msg=addsuccess2');
-        }
-
-        else {
-            $title = $_POST['title'];
-            $detail = $_POST['detail'];
-            $id_cat = $_POST['id_cat'];
-            $id_user = $userLogin['id_user'];
-            if( empty($_FILES["picture"]["tmp_name"]) ){
-                $file_name = "123";
-            } else{
-                $image_name = $_FILES['picture']['name'];
-                $arname = explode('.',$image_name);
-                $duoifile = end($arname);
-                $file_name = 'NEWS-'.time().'.'.$duoifile;
-                $filetmp = $_FILES['picture']['tmp_name'];
-                $filePath = $_SERVER['DOCUMENT_ROOT'].'/hoian/uploads/images/news/'.$file_name;
-                $result = move_uploaded_file($filetmp,$filePath) or die("Upload không thành công"); //('đường dẫn tạm','đường dẫn lưu file');
-            } 
-            $sql="INSERT INTO new(title,id_cat,picture,detail,id_user) VALUES('{$title}','{$id_cat}','{$file_name}','{$detail}' ,'{$id_user}')";
-            $query = $conn->query($sql);
-            if($query){
-              header('location: /hoian/admin/news?msg=addsuccess');
-              }
-            else{ 
-                  $tb = "Lỗi Thêm thất bại";
-               }
-            }
-
-        }
-    
-?>
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/admin/inc/footer.php'; ?>

@@ -1,6 +1,38 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/admin/inc/header.php'; ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/admin/inc/top_bar.php'; ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/admin/inc/left_bar.php'; ?>
+
+<?php
+            if(isset($_POST['submit'])){
+              if( empty($_POST['username']) || empty($_POST['password']) || empty($_POST['repassword']) || empty($_POST['fullname']) || empty($_POST['email']) || ($_POST['role']) ==0 ){
+                  $tb="Nhập vào đầy đủ các trường!";
+        }
+
+        else {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            $repassword = $_POST['repassword'];
+            $fullname = $_POST['fullname'];
+            $email = $_POST['email'];
+            $role = $_POST['role'];
+            if ($role == 1) {
+              $role = "ADMIN";
+            }
+            else 
+              $role = "MOD";
+
+            if($password == $repassword){
+                $sql="INSERT INTO user(username,password,fullname,email,role) VALUES('{$username}','{$password}','{$fullname}','{$email}' ,'{$role}')";
+                $query = $conn->query($sql);
+                if($query){
+                    header('location: /hoian/admin/user?msg=addsuccess');
+                }
+                else $tb = "Lỗi Thêm thất bại";
+            }
+
+        }
+    }
+?>
 <section id="main-content">
           <section class="wrapper">
               <!-- page start-->
@@ -59,35 +91,4 @@
                 </div>
               </section>
             </section>
-  <?php
-            if(isset($_POST['submit'])){
-              if( empty($_POST['username']) || empty($_POST['password']) || empty($_POST['repassword']) || empty($_POST['fullname']) || empty($_POST['email']) || ($_POST['role']) ==0 ){
-                  $tb="Nhập vào đầy đủ các trường!";
-        }
-
-        else {
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-            $repassword = $_POST['repassword'];
-            $fullname = $_POST['fullname'];
-            $email = $_POST['email'];
-            $role = $_POST['role'];
-            if ($role == 1) {
-              $role = "ADMIN";
-            }
-            else 
-              $role = "MOD";
-
-            if($password == $repassword){
-                $sql="INSERT INTO user(username,password,fullname,email,role) VALUES('{$username}','{$password}','{$fullname}','{$email}' ,'{$role}')";
-                $query = $conn->query($sql);
-                if($query){
-                    header('location: /hoian/admin/user?msg=addsuccess');
-                }
-                else $tb = "Lỗi Thêm thất bại";
-            }
-
-        }
-    }
-?>
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/admin/inc/footer.php'; ?>
