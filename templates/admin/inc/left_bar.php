@@ -3,7 +3,7 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
                   <li>
-                      <a class="active" href="index.html">
+                      <a class="active" href="/hoian/admin">
                           <i class="fa fa-dashboard"></i>
                           <span>Dashboard</span>
                       </a>
@@ -15,8 +15,8 @@
                           <span>User</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="boxed_page.html">Add user</a></li>
-                          <li><a  href="horizontal_menu.html">List user</a></li>
+                          <li><a  href="/hoian/admin/user/add.php">Add user</a></li>
+                          <li><a  href="/hoian/admin/user">List user</a></li>
                       </ul>
                   </li>
 
@@ -26,23 +26,19 @@
                           <span>Category</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="general.html">Add cat</a></li>
-                          <li><a  href="buttons.html">List cat</a></li>
+                          <li><a  href="/hoian/admin/cat/add.php">Add cat</a></li>
+                          <li><a  href="/hoian/admin/cat">List cat</a></li>
                       </ul>
                   </li>
 
                   <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="fa fa-cogs"></i>
-                          <span>Components</span>
+                          <span>News</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="grids.html">Grids</a></li>
-                          <li><a  href="calendar.html">Calendar</a></li>
-                          <li><a  href="gallery.html">Gallery</a></li>
-                          <li><a  href="todo_list.html">Todo List</a></li>
-                          <li><a  href="draggable_portlet.html">Draggable Portlet</a></li>
-                          <li><a  href="tree.html">Tree View</a></li>
+                          <li><a  href="/hoian/admin/news/add.php">Add news</a></li>
+                          <li><a  href="/hoian/admin/news">List news</a></li>
                       </ul>
                   </li>
                   <li class="sub-menu">

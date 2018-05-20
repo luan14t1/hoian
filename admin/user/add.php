@@ -17,7 +17,7 @@
                                   <button data-dismiss="alert" class="close close-sm" type="button">
                                       <i class="fa fa-times"></i>
                                   </button>
-                                  <?php  echo $tb?>
+                                  <?php  echo $tb ?>
                               </div>
                               <?php }?>
                               <form role="form" method="post">
@@ -38,6 +38,14 @@
                                       <input type="password" class="form-control" id="repassword" name="repassword" placeholder="Re-Password">
                                   </div>
                                    <div class="form-group">
+                                      <label for="">Role</label>
+                                      <select name="role" class="form-control m-bot15">
+                                        <option value="0">--Role---</option>
+                                        <option value="1">ADMIN</option>
+                                        <option value="2">MOD</option>
+                                      </select>
+                                  </div>
+                                   <div class="form-group">
                                       <label for="">Fullname</label>
                                       <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Enter Fullname">
                                   </div>
@@ -53,27 +61,33 @@
             </section>
   <?php
             if(isset($_POST['submit'])){
-              if( empty($_POST['username']) || empty($_POST['password']) || empty($_POST['repassword']) || empty($_POST['fullname']) || empty($_POST['email']) ){
+              if( empty($_POST['username']) || empty($_POST['password']) || empty($_POST['repassword']) || empty($_POST['fullname']) || empty($_POST['email']) || ($_POST['role']) ==0 ){
                   $tb="Nhập vào đầy đủ các trường!";
         }
-        
+
         else {
             $username = $_POST['username'];
             $password = $_POST['password'];
             $repassword = $_POST['repassword'];
             $fullname = $_POST['fullname'];
             $email = $_POST['email'];
-            
+            $role = $_POST['role'];
+            if ($role == 1) {
+              $role = "ADMIN";
+            }
+            else 
+              $role = "MOD";
+
             if($password == $repassword){
-                $sql="INSERT INTO user(username,password,fullname,email) VALUES('{$username}','{$password}','{$fullname}','{$email}')";
+                $sql="INSERT INTO user(username,password,fullname,email,role) VALUES('{$username}','{$password}','{$fullname}','{$email}' ,'{$role}')";
                 $query = $conn->query($sql);
                 if($query){
                     header('location: /hoian/admin/user?msg=addsuccess');
-                } 
+                }
                 else $tb = "Lỗi Thêm thất bại";
             }
 
         }
     }
-?>                    
+?>
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/admin/inc/footer.php'; ?>

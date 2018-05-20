@@ -107,8 +107,7 @@
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <img alt="" src="img/avatar1_small.jpg">
                             <span class="username"><?php
-                             if(isset($_SESSION['user']['username']))
-                             echo $_SESSION['user']['username']?></span>
+                             echo $userLogin['username']?></span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">

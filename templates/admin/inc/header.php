@@ -46,5 +46,14 @@
   </head>
   
  <body>
+  <?php 
+            if(!isset($_SESSION['user'])){
+                header('location: /hoian/login.php');
+            }
+            else {
+                $userLogin = $_SESSION['user'];
+            }
 
+
+        ?>
   <section id="container" >

@@ -36,7 +36,7 @@
     <script src="/hoian/templates/admin/js/sparkline-chart.js"></script>
     <script src="/hoian/templates/admin/js/easy-pie-chart.js"></script>
     <script src="/hoian/templates/admin/js/count.js"></script>
-
+    <script type="text/javascript" src="/hoian/templates/admin/assets/ckeditor/ckeditor.js"></script>
   <script>
 
       //owl carousel

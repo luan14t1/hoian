@@ -9,14 +9,14 @@
                 <div class="col-sm-12">
               <section class="panel">
               <header class="panel-heading">
-                  User Table
+                  News Table
              <span class="tools pull-right">
                 <a href="javascript:;" class="fa fa-chevron-down"></a>
                 <a href="javascript:;" class="fa fa-times"></a>
              </span>
               </header>
               <div class="panel-body">
-                 <a class="btn green" href="/hoian/admin/user/add.php">
+                 <a class="btn green" href="/hoian/admin/news/add.php">
                  Add New <i class="fa fa-plus"></i></a>
               </button>
               <div class="adv-table">
@@ -24,35 +24,39 @@
               <thead>
               <tr>
                   <th>ID</th>
-                  <th>Username</th>
-                  <th>Email</th>
-                  <th>Fullname</th>
-                  <th>Role</th>
+                  <th>Title</th>
+                  <th>Category</th>
+                  <th>Picture</th>
+                  <th>Detail</th>
                   <th>Function</th>
               </tr>
               </thead>
               <tbody>
                  <?php 
-                   $sql = "SELECT * FROM user";
+                   $sql = "SELECT * FROM new";
                    $query = $conn->query($sql);
                    $link = $query->num_rows ;
                    if($link > 0){
                      $i = 0;
-                     while($arrUser = mysqli_fetch_assoc($query)){
-                       $id_user = $arrUser['id_user']; 
-                       $username = $arrUser['username'];                     
-                       $email = $arrUser['email']; 
-                       $fullname = $arrUser['fullname']; 
-                       $role = $arrUser['role']; 
+                     while($arrNew = mysqli_fetch_assoc($query)){
+                       $id_new = $arrNew['id_new']; 
+                       $title = $arrNew['title'];                     
+                       $id_cat = $arrNew['id_cat']; 
+                       $picture = $arrNew['picture']; 
+                       $detail = $arrNew['detail']; 
                        $i++;
+                       $sql1 = "SELECT * FROM category WHERE id_cat = {$id_cat}";
+                       $query1 = $conn->query($sql1);
+                       $cat = mysqli_fetch_assoc($query1);
+                       $name_cat = $cat['name'];
                 ?>
               <tr class="gradeA">
                   <td><?php echo $i ?></td>
-                  <td><?php echo $username ?></td>
-                  <td><?php echo $email ?></td>
-                  <td><?php echo $fullname ?></td>
-                  <td><?php echo $role ?></td>
-                  <td><a href="/hoian/admin/user/edit.php?idUser=<?php echo $id_user?>"><i class="fa fa-edit"></i>Edit</a> - <a href="/hoian/admin/user/delete.php?idUser=<?php echo $id_user?>"><i class="fa fa-minus-circle"></i>Delete</a></td>
+                  <td><?php echo $title ?></td>
+                  <td><?php echo $name_cat ?></td>
+                  <td><img src="/hoian/uploads/images/news/<?php echo $picture ?>" alt="<?php echo $title ?>" height="100" width="200"></td>
+                  <td><?php echo $detail ?></td>
+                  <td><a href="/hoian/admin/new/edit.php?idNew=<?php echo $id_new?>"><i class="fa fa-edit"></i>Edit</a> - <a href="/hoian/admin/new/delete.php?idNew=<?php echo $id_new?>"><i class="fa fa-minus-circle"></i>Delete</a></td>
               </tr>
               <?php
                 }
