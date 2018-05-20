@@ -15,10 +15,6 @@
                 <a href="javascript:;" class="fa fa-times"></a>
              </span>
               </header>
-              <div class="panel-body">
-                 <a class="btn green" href="/hoian/admin/contact/add.php">
-                 Add New <i class="fa fa-plus"></i></a>
-              </div> 
               <div class="adv-table">
               <table  class="display table table-bordered table-striped" id="dynamic-table">
               <thead>

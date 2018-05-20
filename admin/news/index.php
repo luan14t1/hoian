@@ -56,7 +56,7 @@
                   <td><?php echo $name_cat ?></td>
                   <td><img src="/hoian/uploads/images/news/<?php echo $picture ?>" alt="<?php echo $title ?>" height="100" width="200"></td>
                   <td><?php echo $detail ?></td>
-                  <td><a href="/hoian/admin/new/edit.php?idNew=<?php echo $id_new?>"><i class="fa fa-edit"></i>Edit</a> - <a href="/hoian/admin/new/delete.php?idNew=<?php echo $id_new?>"><i class="fa fa-minus-circle"></i>Delete</a></td>
+                  <td><a href="/hoian/admin/news/edit.php?idNew=<?php echo $id_new?>"><i class="fa fa-edit"></i>Edit</a> - <a href="/hoian/admin/news/delete.php?idNew=<?php echo $id_new?>"><i class="fa fa-minus-circle"></i>Delete</a></td>
               </tr>
               <?php
                 }

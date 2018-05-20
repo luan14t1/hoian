@@ -8,7 +8,7 @@
                 <div class="col-lg-12">
                       <section class="panel">
                           <header class="panel-heading">
-                              Add news Form
+                              Add News Form
                           </header>
                           <div class="panel-body">
                             <div class="col-lg-6">
@@ -47,7 +47,7 @@
                                   </div>
                                    <div class="form-group">
                                       <label for="">Detail</label>
-                                      <textarea name="detail" class="form-control" rows="10"></textarea>
+                                      <textarea name="detail" class="form-control" rows="10" placeholder="Enter Detail"></textarea>
                                   </div>
                                   <button type="submit" class="btn btn-info" name="submit">Submit</button>
                                   <button type="reset" class="btn btn-info" name="reset">Reset</button>

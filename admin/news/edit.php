@@ -2,17 +2,16 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/admin/inc/top_bar.php'; ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/admin/inc/left_bar.php'; ?>
 <?php
-  if(isset($_GET['idUser'])){
-    $id_user = $_GET['idUser'];
-    $sql = "SELECT * FROM user WHERE id_user = '{$id_user}'";
+  if(isset($_GET['idNew'])){
+    $id_new = $_GET['idNew'];
+    $sql = "SELECT * FROM new WHERE id_new = '{$id_new}'";
     $query = $conn->query($sql);
-    $user = mysqli_fetch_assoc($query);
-    $username = $user['username'];
-    $fullname = $user['fullname'];
-    $email = $user['email'];
-    $role = $user['role'];
-  }
-?>
+    $news = mysqli_fetch_assoc($query);
+    $title = $news['title'];
+    $detail = $news['detail'];
+    $picture = $news['picture'];
+    $id_cat = $news['id_cat'];
+    ?>
 <section id="main-content">
           <section class="wrapper">
               <!-- page start-->
@@ -20,7 +19,7 @@
                 <div class="col-lg-12">
                       <section class="panel">
                           <header class="panel-heading">
-                              Edit user Form
+                              Edit News Form
                           </header>
                           <div class="panel-body">
                             <div class="col-lg-6">
@@ -32,40 +31,45 @@
                                   <?php  echo $tb?>
                               </div>
                               <?php }?>
-                              <form role="form" method="post">
+                              <form role="form" method="post" enctype = 'multipart/form-data'>
                                  <div class="form-group">
-                                      <label for="">Username</label>
-                                      <input type="text" readonly="true" class="form-control" id="username" name="username" placeholder="Enter Username" value="<?php echo $username?>" >
+                                      <label for="">Title</label>
+                                      <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title" value="<?php echo $title ?>">
                                   </div>
                                   <div class="form-group">
-                                      <label for="">Email address</label>
-                                      <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" value="<?php echo $email ?>">
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="">Password</label>
-                                      <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="">Re-Password</label>
-                                      <input type="password" class="form-control" id="repassword" name="repassword" placeholder="Re-Password">
-                                  </div>
-                                    <div class="form-group">
-                                      <label for="">Role</label>
-                                      <select name="role" class="form-control m-bot15">
+                                      <label for="">Category</label>
+                                      <select name="id_cat" class="form-control m-bot15">
                                         <?php
-                                          if($role == "ADMIN"){
+                                          $sql1 = "SELECT * FROM category";
+                                          $query1 = $conn->query($sql1);
+                                          while ($arrCat = mysqli_fetch_assoc($query1)) {
+                                            $id_cat1 = $arrCat['id_cat'];
+                                            $name = $arrCat['name'];
+                                            if($id_cat == $id_cat1){
                                         ?>
-                                          <option value="1">ADMIN</option>
-                                          <option value="2">MOD</option>
-                                        <?php }else {?>
-                                          <option value="2">MOD</option>
-                                          <option value="1">ADMIN</option> 
-                                        <?php } ?>
+                                        <option value="<?php echo $id_cat ?>" selected="selected"><?php echo $name ?></option>
+                                      <?php }else {?>
+                                        <option value="<?php echo $id_cat ?>"><?php echo $name ?></option>   
+                                      <?php 
+                                           }
+                                       } 
+                                     ?>
                                       </select>
                                   </div>
+                                  <div class="form-group">
+                                          <label class="control-label">Image</label>
+                                          <div class="">
+                                              <div class="fileupload fileupload-new" data-provides="fileupload">
+                                                  <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                                                      <img src="/hoian/uploads/images/news/<?php echo $picture ?>" alt="<?php echo $title ?>">
+                                                  </div>
+                                                  <input type="file" name="picture" accept=".jpg, .jpeg, .png">
+                                              </div>
+                                          </div>
+                                      </div>
                                    <div class="form-group">
-                                      <label for="">Fullname</label>
-                                      <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Enter Fullname" value="<?php echo $fullname?>">
+                                      <label for="">Detail</label>
+                                      <textarea name="detail" class="form-control" rows="10" placeholder="Enter Detail"><?php echo $detail ?></textarea>
                                   </div>
                                   <button type="submit" class="btn btn-info" name="submit">Submit</button>
                                   <button type="reset" class="btn btn-info" name="reset">Reset</button>
@@ -79,35 +83,39 @@
             </section>
   <?php
             if(isset($_POST['submit'])){
-              if( empty($_POST['username']) || empty($_POST['password']) || empty($_POST['repassword']) || empty($_POST['fullname']) || empty($_POST['email']) ){
+              if( empty($_POST['title']) || empty($_POST['detail'])){
                   $tb="Nhập vào đầy đủ các trường!";
         }
-        
+
         else {
-          if(isset($_GET['idUser'])){
-            $id_user = $_GET['idUser'];
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-            $repassword = $_POST['repassword'];
-            $fullname = $_POST['fullname'];
-            $email = $_POST['email'];
-            $role = $_POST['role'];
-            if ($role == 1) {
-              $role = "ADMIN";
-            }
-            else 
-              $role = "MOD";
-            if($password == $repassword){
-                $sql="UPDATE user SET username = '{$username}',  password = '{$password}' ,fullname = '{$fullname}' ,email = '{$email}' , role = '{$role}' WHERE id_user = '{$id_user}'";
-                $query = $conn->query($sql);
-                if($query){
-                    header('location: /hoian/admin/user?msg=editsuccess');
-                } 
-                else $tb = "Lỗi sửa thất bại";
+            $title1 = $_POST['title'];
+            $detail1 = $_POST['detail'];
+            $id_cat1 = $_POST['id_cat'];
+            $id_user = $userLogin['id_user'];
+            if( empty($_FILES["picture"]["tmp_name"]) ){
+                $sql2="UPDATE new SET title = '{$title1}',id_cat = '{$id_cat1}',detail = '{$detail1}',id_user = '{$id_user}' WHERE id_new = {$id_new}";
+            } else{
+                $image_name = $_FILES['picture']['name'];
+                $arname = explode('.',$image_name);
+                $duoifile = end($arname);
+                $file_name = 'NEWS-'.time().'.'.$duoifile;
+                $filetmp = $_FILES['picture']['tmp_name'];
+                $filePath = $_SERVER['DOCUMENT_ROOT'].'/hoian/uploads/images/news/'.$file_name;
+                $result = move_uploaded_file($filetmp,$filePath) or die("Upload không thành công"); //('đường dẫn tạm','đường dẫn lưu file');
+                $sql2="UPDATE new SET title = '{$title1}',id_cat = '{$id_cat1}',picture = '{$file_name}',detail = '{$detail1}',id_user = '{$id_user}' WHERE id_new = {$id_new}";
+                unlink($_SERVER['DOCUMENT_ROOT'].'/hoian/uploads/images/news/'.$picture);
+            } 
+            $query2 = $conn->query($sql2);
+            if($query2){
+              header('location: /hoian/admin/news?msg=editsuccess');
+              }
+            else{ 
+                  $tb = "Lỗi sửa thất bại";
+                   header('location: /hoian/admin/news?msg=editsuccess1');
+               }
             }
 
         }
     }
-  }
-?>                    
+?>
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/admin/inc/footer.php'; ?>

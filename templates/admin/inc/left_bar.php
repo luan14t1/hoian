@@ -44,17 +44,10 @@
                   <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="fa fa-tasks"></i>
-                          <span>Form Stuff</span>
+                          <span>Contact</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="form_component.html">Form Components</a></li>
-                          <li><a  href="advanced_form_components.html">Advanced Components</a></li>
-                          <li><a  href="form_wizard.html">Form Wizard</a></li>
-                          <li><a  href="form_validation.html">Form Validation</a></li>
-                          <li><a  href="dropzone.html">Dropzone File Upload</a></li>
-                          <li><a  href="inline_editor.html">Inline Editor</a></li>
-                          <li><a  href="image_cropping.html">Image Cropping</a></li>
-                          <li><a  href="file_upload.html">Multiple File Upload</a></li>
+                          <li><a  href="/hoian/admin/contact">List contact</a></li>
                       </ul>
                   </li>
                   <li class="sub-menu">
