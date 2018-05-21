@@ -13,7 +13,7 @@
     $role = $user['role'];
   }
             if(isset($_POST['submit'])){
-              if( empty($_POST['username']) || empty($_POST['password']) || empty($_POST['repassword']) || empty($_POST['fullname']) || empty($_POST['email']) ){
+              if( empty($_POST['username']) || empty($_POST['fullname']) || empty($_POST['email']) ){
                   $tb="Nhập vào đầy đủ các trường!";
         }
         
@@ -39,7 +39,7 @@
                 } 
                 else $tb = "Lỗi sửa thất bại";
             }
-
+                else $tb = "Xác nhận mật khẩu chưa chính xác!";
         }
     }
   }

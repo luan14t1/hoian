@@ -15,6 +15,25 @@
                 <a href="javascript:;" class="fa fa-times"></a>
              </span>
               </header>
+               <?php if(isset($_GET['msg'])) { ?>
+                               <?php if($_GET['msg'] == "delsuccess") { ?>
+                              <div class="alert alert-success" role="alert">
+                                  <button data-dismiss="alert" class="close close-sm" type="button">
+                                      <i class="fa fa-times"></i>
+                                  </button>
+                                  Xóa thành công 
+                              </div>
+                              <?php }?>
+                               <?php if($_GET['msg'] == "delerror") { ?>
+                              <div class="alert alert-block alert-danger fade in">
+                                  <button data-dismiss="alert" class="close close-sm" type="button">
+                                      <i class="fa fa-times"></i>
+                                  </button>
+                                  Xóa thất bại
+                              </div>
+                              <?php }
+                                  }
+                              ?>
               <div class="adv-table">
               <table  class="display table table-bordered table-striped" id="dynamic-table">
               <thead>
@@ -48,7 +67,7 @@
                   <td><?php echo $phone ?></td>
                   <td><?php echo $email ?></td>
                   <td><?php echo $detail ?></td>
-                  <td><a href="/hoian/admin/contact/delete.php?idContact=<?php echo $id_contact?>" onclick="return confirmAction()"><i class="fa fa-minus-circle"></i>Delete</a></td>
+                  <td><a href="/hoian/admin/contact/delete.php?idContact=<?php echo $id_contact?>"title="" onclick="return confirm('Bạn có chắc muốn xóa?')"><i class="fa fa-minus-circle"></i>Delete</a></td>
               </tr>
               <?php
                 }

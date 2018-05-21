@@ -12,7 +12,7 @@
   if($query1){
   	header("Location: /hoian/admin/news?msg=delsuccess");
      }else{
-       $tb = "Xóa thất bại";
+    header("Location: /hoian/admin/cat?msg=delerrorr");
      }
   }
 ?>

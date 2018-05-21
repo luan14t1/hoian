@@ -8,6 +8,8 @@
   $query = $conn->query($sql);
   if($query)
   	header("Location: /hoian/admin/user?msg=delsuccess");
+  else
+    header("Location: /hoian/admin/cat?msg=delerrorr");
      }
    }
 ?>

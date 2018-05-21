@@ -19,6 +19,41 @@
                  <a class="btn green" href="/hoian/admin/user/add.php">
                  Add New <i class="fa fa-plus"></i></a>
               </button>
+                 <?php if(isset($_GET['msg'])) { ?>
+                              <?php if($_GET['msg'] == "addsuccess") { ?>
+                              <div class="alert alert-success" role="alert">
+                                  <button data-dismiss="alert" class="close close-sm" type="button">
+                                      <i class="fa fa-times"></i>
+                                  </button>
+                                  Thêm thành công 
+                              </div>
+                              <?php }?>
+                               <?php if($_GET['msg'] == "editsuccess") { ?>
+                              <div class="alert alert-success" role="alert">
+                                  <button data-dismiss="alert" class="close close-sm" type="button">
+                                      <i class="fa fa-times"></i>
+                                  </button>
+                                  Sửa thành công 
+                              </div>
+                              <?php }?>
+                               <?php if($_GET['msg'] == "delsuccess") { ?>
+                              <div class="alert alert-success" role="alert">
+                                  <button data-dismiss="alert" class="close close-sm" type="button">
+                                      <i class="fa fa-times"></i>
+                                  </button>
+                                  Xóa thành công 
+                              </div>
+                              <?php }?>
+                               <?php if($_GET['msg'] == "delerror") { ?>
+                              <div class="alert alert-block alert-danger fade in">
+                                  <button data-dismiss="alert" class="close close-sm" type="button">
+                                      <i class="fa fa-times"></i>
+                                  </button>
+                                  Xóa thất bại
+                              </div>
+                              <?php }
+                                  }
+                              ?>
               <div class="adv-table">
               <table  class="display table table-bordered table-striped" id="dynamic-table">
               <thead>
@@ -52,7 +87,8 @@
                   <td><?php echo $email ?></td>
                   <td><?php echo $fullname ?></td>
                   <td><?php echo $role ?></td>
-                  <td><a href="/hoian/admin/user/edit.php?idUser=<?php echo $id_user?>"><i class="fa fa-edit"></i>Edit</a> - <a href="/hoian/admin/user/delete.php?idUser=<?php echo $id_user?>"><i class="fa fa-minus-circle"></i>Delete</a></td>
+                  <td><a href="/hoian/admin/user/edit.php?idUser=<?php echo $id_user?>"><i class="fa fa-edit"></i>Edit</a> - <a href="/hoian/admin/user/delete.php?idUser=<?php echo $id_user?>" title="" onclick="return confirm('Bạn có chắc muốn xóa: <?=$username ?>!!!')"><i class="fa fa-minus-circle"></i>Delete</a></td>
+
               </tr>
               <?php
                 }
