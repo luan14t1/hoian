@@ -4,6 +4,16 @@
  <section id="main-content">
           <section class="wrapper">
               <!--state overview start-->
+               <?php if(isset($_GET['msg'])) { ?>
+                              <?php if($_GET['msg'] == "loginsuccess") { ?>
+                              <div class="alert alert-success" role="alert">
+                                  <button data-dismiss="alert" class="close close-sm" type="button">
+                                      <i class="fa fa-times"></i>
+                                  </button>
+                                  Đăng nhập thành công 
+                              </div>
+                              <?php }?>
+                  <?php }?>            
               <div class="row state-overview">
                   <div class="col-lg-3 col-sm-6">
                       <section class="panel">

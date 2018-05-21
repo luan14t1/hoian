@@ -18,10 +18,11 @@
             if ($role == 1) {
               $role = "ADMIN";
             }
-            else 
+            else
               $role = "MOD";
 
             if($password == $repassword){
+                $password = md5($_POST['password']);
                 $sql="INSERT INTO user(username,password,fullname,email,role) VALUES('{$username}','{$password}','{$fullname}','{$email}' ,'{$role}')";
                 $query = $conn->query($sql);
                 if($query){
@@ -29,7 +30,7 @@
                 }
                 else $tb = "Lỗi Thêm thất bại";
             }
-
+                else $tb = "Xác nhận mật khẩu không chính xác";
         }
     }
 ?>

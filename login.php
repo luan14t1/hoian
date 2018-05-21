@@ -22,13 +22,41 @@
     <link href="/hoian/templates/admin/css/style-responsive.css" rel="stylesheet" />
 
 </head>
-
+  <?php
+  if(isset($_POST['submit'])){
+    if(empty($_POST['username']) || empty($_POST['password'])){
+       $tb = "Nhập username và password";
+    }
+    else
+    {
+     $username = $_POST['username'];
+     $password = md5($_POST['password']);
+     $sql = "SELECT * FROM user WHERE username = '{$username}' and password = '{$password}'";
+     $query = $conn->query($sql);
+     $user = mysqli_fetch_assoc($query);
+     if($query->num_rows > 0){
+      $_SESSION['user'] = $user; 
+      header("Location: /hoian/admin?msg=loginsuccess");
+     }else{
+      $msg="Login thất bại! Sai username hoặc password!";
+     }
+    }
+  }
+?>
   <body class="login-body">
 
     <div class="container">
-
+ 
       <form class="form-signin" action="" method="post">
         <h2 class="form-signin-heading">sign in now</h2>
+        <?php if(isset($msg)) {?>
+                    <div class="alert alert-danger" role="alert">
+                                  <button data-dismiss="alert" class="close close-sm" type="button">
+                                      <i class="fa fa-times"></i>
+                                  </button>
+                                  <?php echo $msg ?>
+                              </div>
+                          <?php }?>
         <div class="login-wrap">
             <input type="text" class="form-control" placeholder="Username" name="username">
             <input type="password" class="form-control" placeholder="Password" name="password">
@@ -38,7 +66,7 @@
                     <a data-toggle="modal" href="#myModal"> Forgot Password?</a>
 
                 </span>
-                <span style="margin-left: 75px; color: #0DC0E6; text-align: center"> <?php if(isset($tb)){ echo $tb;}  ?> </span>
+            
             </label>
             <button class="btn btn-lg btn-login btn-block" type="submit" name="submit">Sign in</button>
             <p>or you can sign in via social network</p>
@@ -95,25 +123,5 @@
 
 
   </body>
-<?php
-  if(isset($_POST['submit'])){
-    if(empty($_POST['username']) || empty($_POST['password'])){
-       $tb = "Nhập username và password";
-    }
-    else
-    {
-     $username = $_POST['username'];
-     $password = $_POST['password'];
-     $sql = "SELECT * FROM user WHERE username = '{$username}' and password = '{$password}'";
-     $query = $conn->query($sql);
-     $user = mysqli_fetch_assoc($query);
-     if($query->num_rows > 0){
-      $_SESSION['user'] = $user; 
-      header("Location: /hoian/admin?msg=loginsuccess");
-     }else{
-      $msg="Login thất bại!";
-     }
-    }
-  }
-?>
+
 </html>

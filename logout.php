@@ -2,5 +2,5 @@
 <?php session_start() ;?>
 <?php
   unset($_SESSION['user']);
-  header("Location: /hoian/login.php?msg=logout");
+  header("Location: /hoian/login.php");
 ?>

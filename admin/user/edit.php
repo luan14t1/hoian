@@ -31,15 +31,20 @@
             }
             else 
               $role = "MOD";
+            if(empty($password) && empty($repassword)){
+              $sql="UPDATE user SET username = '{$username}' ,fullname = '{$fullname}' ,email = '{$email}' , role = '{$role}' WHERE id_user = '{$id_user}'";
+            }
             if($password == $repassword){
+                $password = md5($_POST['password']);
                 $sql="UPDATE user SET username = '{$username}',  password = '{$password}' ,fullname = '{$fullname}' ,email = '{$email}' , role = '{$role}' WHERE id_user = '{$id_user}'";
+                }
+                else $tb = "Xác nhận mật khẩu chưa chính xác!";
                 $query = $conn->query($sql);
                 if($query){
                     header('location: /hoian/admin/user?msg=editsuccess');
                 } 
                 else $tb = "Lỗi sửa thất bại";
-            }
-                else $tb = "Xác nhận mật khẩu chưa chính xác!";
+            
         }
     }
   }
