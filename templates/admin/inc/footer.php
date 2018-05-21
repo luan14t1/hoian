@@ -1,6 +1,6 @@
 <footer class="site-footer">
           <div class="text-center">
-              2018 &copy; HoiAn.
+              2018 &copy; Website giới thiệu Hội An. All rights reserved | Design by Quang & Luân 14T1.
               <a href="#" class="go-top">
                   <i class="fa fa-angle-up"></i>
               </a>
@@ -59,11 +59,27 @@
       });
 
   </script>
+<script type="text/javascript">
+            $('.table').dataTable( {
+				  "oLanguage": {
+				    "sSearch": "Tìm kiếm:",
+				    "sLengthMenu": "Hiển thị _MENU_ kết quả",
+				    "sInfo": "Hiển thị _START_ đến _END_ của _TOTAL_ kết quả",
+				    "sInfoFiltered": " (tìm kiếm từ _MAX_ mục)",
+				    "sInfoEmpty": "Không tìm thấy",
+				    "oPaginate": {
+				           "sNext": "Trang sau",
+				           "sPrevious": "Trang trước"
+				    },
+				  }
+			} );
+</script>
 
 <script type="text/javascript">
-			function confirmAction() {
-				return confirm("Bạn có chắc chắn muốn xóa?")
-			}
+	function confirmAction() {
+		return confirm("Bạn có chắc chắn muốn xóa?")
+	}
+            
 </script>
 
   </body>

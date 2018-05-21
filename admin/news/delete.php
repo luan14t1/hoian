@@ -12,7 +12,7 @@
   if($query1){
   	header("Location: /hoian/admin/news?msg=delsuccess");
      }else{
-    header("Location: /hoian/admin/cat?msg=delerrorr");
+    header("Location: /hoian/admin/news?msg=delerrorr");
      }
   }
 ?>

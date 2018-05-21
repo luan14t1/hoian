@@ -80,6 +80,8 @@
 <link href="/hoian/templates/public/assets/css/xx.css" type="text/css" rel="stylesheet" />
 <link href="/hoian/templates/public/assets/css/contact.css" type="text/css" rel="stylesheet"/>
 <link href="/hoian/templates/public/assets/css/event.css" type="text/css" rel="stylesheet"/>
+<link rel="stylesheet/less" type="text/css" href="/hoian/templates/public/assets/css/news.less">
+<link href="/hoian/templates/public/assets/css/news.css" type="text/css" rel="stylesheet" />
 
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TVZ75WW');</script>
@@ -137,10 +139,21 @@ header .top-search .dropdown button {
 <nav class="hidden-xs hidden-sm">
 <div>
 	<ul id="main-nav">
-		<li  class=" "	><a href="discover.html" title="Khám phá">Khám phá</a></li>
-		<li  class=" "	><a href="event.html" title="Sự kiện">Sự kiện</a></li>
-		<li><a href="http://booking.hoianimpression.vn/" title="Đặt vé">Đặt vé</a></li>
-		<li  class=" "	><a href="map.html" title="Bản đồ">Bản đồ</a></li>
+		<?php 
+            $sql = "SELECT * FROM category";
+            $query = $conn->query($sql);
+            $link = $query->num_rows ;
+            if($link > 0){	
+                while($arrCat = mysqli_fetch_assoc($query)){
+                $id_cat = $arrCat['id_cat']; 
+                $name = $arrCat['name'];                                   
+        ?>
+		<li  class=" "	><a href="cat.php?idCat=<?php echo $id_cat?>" title="<?php echo $name?>"><?php echo $name?></a></li>
+		<?php
+            }
+        }
+        ?>
+		<li  class=" "	><a href="map.php" title="Bản đồ">Bản đồ</a></li>
 		<li  class=" "	><a href="contact.php" title="Liên hệ">Liên hệ</a></li>
 	</ul>
 	<div class="clearfix"></div>
@@ -170,16 +183,9 @@ header .top-search .dropdown button {
     					</span>
     				</div>
 					<div class="regis">
-					<a href="login.php" target="_link" class="dangky-dangnhap">Đăng nhập</a>
+					<a href="/hoian/admin" target="_link" class="dangky-dangnhap">Đăng nhập</a>
 					</div>
-					<div class="dropdown">
-						  <button class="btn btn-primary dropdown-toggle langua" type="button" data-toggle="dropdown">
-						  Tiếng Việt						  
-						  <span class="caret"></span>
-						  </button>
-						  <ul class="dropdown-menu">
-							<li><a href="?com=ngonngu&lang=en">English</a></li><li><a href="?com=ngonngu&lang=jp">Japanese</a></li><li><a href="?com=ngonngu&lang=ko">Korean</a></li><li><a href="?com=ngonngu&lang=cn">Chinese</a></li>						  </ul>
-					</div>
+					
 					<div class="clearfix"></div>
 
 				</div>
@@ -215,15 +221,8 @@ header .top-search .dropdown button {
 	</div>
 	<div class="content"></div>	
 	<div class="login-link">
-		<a href="http://booking.hoianimpression.vn/relogin?redirect=/member/bookings" target="_blank">Đăng nhập</a>
-		<!--<a href="http://booking.hoianimpression.vn/BookingSite/register" target="_blank">Đăng ký</a>-->
+		<a href="/hoian/admin" target="_blank">Đăng nhập</a>
 	</div>
-	<div class='toggle-search toggle' data-for="lang">
-		<span>Ngôn ngữ</span><i class="fa fa-angle-down pull-right"></i><div class="clearfix"></div>
-	</div>
-	<div class="lang">
-		<ul>
-	<li class="active"><a href="?com=ngonngu&lang=vi">Tiếng Việt</a></li><li class=""><a href="?com=ngonngu&lang=en">English</a></li><li class=""><a href="?com=ngonngu&lang=jp">Japanese</a></li><li class=""><a href="?com=ngonngu&lang=ko">Korean</a></li><li class=""><a href="?com=ngonngu&lang=cn">Chinese</a></li>		</ul>
 		
 	</div>	
 	<div class="clearfix"></div>
