@@ -32,6 +32,7 @@
      $username = $_POST['username'];
      $password = md5($_POST['password']);
      $sql = "SELECT * FROM user WHERE username = '{$username}' and password = '{$password}'";
+     /*echo $sql; die();*/
      $query = $conn->query($sql);
      $user = mysqli_fetch_assoc($query);
      if($query->num_rows > 0){

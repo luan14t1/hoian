@@ -55,23 +55,23 @@
 					<div class="title">Liên hệ chúng tôi</div>
 					<div class="fix-title">
 						<div style="width:100%;">
-<div style="width:7%;float:left;"><strong>A:</strong></div>
+<div style="width:50%;float:left;"><strong>Địa chỉ:</strong></div>
 
 <div style="width:92%;float:left;">Cồn Hến (200 Nguyễn Tri Phuơng rẽ trái), P.Cẩm Nam, TP.Hội An</div>
 </div>
 
 <div style="width:100%;">
-<div style="width:20%;float:left;"><strong>Hotline:</strong></div>
+<div style="width:50%;float:left;"><strong>Hotline:</strong></div>
 
-<div style="width:80%;float:left;">1900 636600 or 0904 6336600</div>
+<div style="width:80%;float:left;">  1900 636600 or 0904 6336600</div>
 </div>
 
 <div style="width:100%;">
-<div style="width:7%;float:left;"><strong>E:</strong></div>
+<div style="width:50%;float:left;"><strong>Email:</strong></div>
 
 <div style="width:92%;float:left;">info@hoianimpression.vn</div>
 
-<div style="width:92%;float:left;"><strong>Người liên lạc</strong>: Bà Đỗ Thị Hoà - Giám đốc truyền thông (Mobile:&nbsp;0906008368)</div>
+<div style="width:50%;float:left;"><strong>Người liên lạc</strong>: Bà Đỗ Thị Hoà - Giám đốc truyền thông (Mobile:&nbsp;0906008368)</div>
 
 <div style="width:92%;float:left;">&nbsp;</div>
 
@@ -172,7 +172,7 @@
             $sql="INSERT INTO contact(fullname,phone,email,detail) VALUES('{$fullname}','{$phone}','{$email}','{$detail}')";
             $query = $conn->query($sql);
             if($query){
-                header('location: /hoian/contact');
+                header('location: /hoian');
             } 
             else $tb = "Lỗi Thêm thất bại";     
         }

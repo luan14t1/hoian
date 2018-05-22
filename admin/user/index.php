@@ -87,7 +87,7 @@
                   <td><?php echo $email ?></td>
                   <td><?php echo $fullname ?></td>
                   <td><?php echo $role ?></td>
-                  <td><a href="/hoian/admin/user/edit.php?idUser=<?php echo $id_user?>"><i class="fa fa-edit"></i>Edit</a> - <a href="/hoian/admin/user/delete.php?idUser=<?php echo $id_user?>" title="" onclick="return confirm('Bạn có chắc muốn xóa: <?=$username ?>!!!')"><i class="fa fa-minus-circle"></i>Delete</a></td>
+                  <td><a href="/hoian/admin/user/edit.php?idUser=<?php echo $id_user?>"><i class="fa fa-edit"></i>Edit</a> - <a href="/hoian/admin/user/delete.php?idUser=<?php echo $id_user?>" title="" onclick="return confirm('Bạn có chắc muốn xóa: <?=$username ?>!!!')" id="del"><i class="fa fa-minus-circle"></i>Delete</a></td>
 
               </tr>
               <?php
@@ -106,4 +106,32 @@
           </section>
           </section>
       </section>
+      <script type="text/javascript">
+      $(document).ready(function() {
+  $(".gradeA").on("click", "#del", function(e) {
+  e.preventDefault();
+  var clickedID = this.id.split('-'); //Split ID string (Split works as PHP explode)
+  var DbNumberID = clickedID[1]; //and get number from array
+  var myData = 'recordToDelete='+ DbNumberID; //build a post data structure
+  
+ $('#item_'+DbNumberID).addClass( "sel" ); //change background of this element by adding class
+ $(this).hide(); //hide currently clicked delete button
+  
+  jQuery.ajax({
+  type: "POST", // HTTP method POST or GET
+  url: ".hoian/amdin/user/delete.php?idUser="+DbNumberID, //Where to make Ajax calls
+  dataType:"text", // Data type, HTML, json etc.
+  data:myData, //Form variables
+  success:function(response){
+   //on success, hide  element user wants to delete.
+   $('#item_'+DbNumberID).fadeOut();
+  },
+  error:function (xhr, ajaxOptions, thrownError){
+   //On error, we alert user
+   alert(thrownError);
+  }
+  });
+ });
+});  
+</script>
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/admin/inc/footer.php'; ?>
