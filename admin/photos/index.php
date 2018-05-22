@@ -9,17 +9,17 @@
                 <div class="col-sm-12">
               <section class="panel">
               <header class="panel-heading">
-                  Danh sách danh mục
+                  Danh sách hình ảnh
              <span class="tools pull-right">
                 <a href="javascript:;" class="fa fa-chevron-down"></a>
                 <a href="javascript:;" class="fa fa-times"></a>
              </span>
               </header>
               <div class="panel-body">
-                 <a class="btn green" href="/hoian/admin/cat/add.php">
-                 Thêm danh mục <i class="fa fa-plus"></i></a>
+                 <a class="btn green" href="/hoian/admin/photos/add.php">
+                 Thêm hình ảnh <i class="fa fa-plus"></i></a>
               </button>
-               <?php if(isset($_GET['msg'])) { ?>
+              <?php if(isset($_GET['msg'])) { ?>
                               <?php if($_GET['msg'] == "addsuccess") { ?>
                               <div class="alert alert-success" role="alert">
                                   <button data-dismiss="alert" class="close close-sm" type="button">
@@ -59,27 +59,27 @@
               <thead>
               <tr>
                   <th>ID</th>
-                  <th>Tên danh mục</th>
+                  <th>Tiêu đề</th>
+                  <th>Hình ảnh</th>
                   <th>Chức năng</th>
               </tr>
               </thead>
               <tbody>
                  <?php 
-                   $sql = "SELECT * FROM category";
+                   $sql = "SELECT * FROM photo";
                    $query = $conn->query($sql);
                    $link = $query->num_rows ;
                    if($link > 0){
-                     $i = 0;
-                     while($arrCat = mysqli_fetch_assoc($query)){
-                       $id_cat = $arrCat['id_cat']; 
-                       $name = $arrCat['name'];                     
-                       $i++;
+                     while($arrNew = mysqli_fetch_assoc($query)){
+                       $id_photo = $arrNew['id_photo']; 
+                       $title = $arrNew['title'];                     
+                       $picture = $arrNew['picture']; 
                 ?>
               <tr class="gradeA">
-                  <td><?php echo $i ?></td>
-                  <td><?php echo $name ?></td>
-                  <td><a href="/hoian/admin/cat/edit.php?idCat=<?php echo $id_cat?>"><i class="fa fa-edit"></i>Sửa</a> - <a href="/hoian/admin/cat/delete.php?idCat=<?php echo $id_cat?>" title="" onclick="return confirm('Bạn có chắc muốn xóa: <?= $name ?>?')"><i class="fa fa-minus-circle"></i>Xóa</a>
-                  </td>
+                  <td><?php echo $id_photo ?></td>
+                  <td><?php echo $title ?></td>
+                  <td><img src="/hoian/uploads/images/photos/<?php echo $picture ?>" alt="<?php echo $title ?>" height="80" width="180"></td>
+                  <td><a href="/hoian/admin/photos/edit.php?idPhoto=<?php echo $id_photo?>"><i class="fa fa-edit"></i>Sửa</a> - <a href="/hoian/admin/photos/delete.php?idPhoto=<?php echo $id_photo?>" title="" onclick="return confirm('Bạn có chắc muốn xóa: <?=$title ?>?')"><i class="fa fa-minus-circle"></i>Xóa</a></td>
               </tr>
               <?php
                 }

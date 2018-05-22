@@ -9,7 +9,7 @@
                 <div class="col-sm-12">
               <section class="panel">
               <header class="panel-heading">
-                  News Table
+                  Danh sách bài viết
              <span class="tools pull-right">
                 <a href="javascript:;" class="fa fa-chevron-down"></a>
                 <a href="javascript:;" class="fa fa-times"></a>
@@ -17,7 +17,7 @@
               </header>
               <div class="panel-body">
                  <a class="btn green" href="/hoian/admin/news/add.php">
-                 Add New <i class="fa fa-plus"></i></a>
+                 Thêm bài viết <i class="fa fa-plus"></i></a>
               </button>
               <?php if(isset($_GET['msg'])) { ?>
                               <?php if($_GET['msg'] == "addsuccess") { ?>
@@ -55,15 +55,14 @@
                                   }
                               ?>
               <div class="adv-table">
-              <table  class="display table table-bordered table-striped" id="dynamic-table">
+              <table  class="display table table-bordered table-striped" id="table">
               <thead>
               <tr>
                   <th>ID</th>
-                  <th>Title</th>
-                  <th>Category</th>
-                  <th>Picture</th>
-                  <th>Detail</th>
-                  <th>Function</th>
+                  <th>Tiêu đề</th>
+                  <th>Danh mục</th>
+                  <th>Hình ảnh</th>
+                  <th>Chức năng</th>
               </tr>
               </thead>
               <tbody>
@@ -89,9 +88,8 @@
                   <td><?php echo $i ?></td>
                   <td><?php echo $title ?></td>
                   <td><?php echo $name_cat ?></td>
-                  <td><img src="/hoian/uploads/images/news/<?php echo $picture ?>" alt="<?php echo $title ?>" height="100" width="200"></td>
-                  <td><?php echo $detail ?></td>
-                  <td><a href="/hoian/admin/news/edit.php?idNew=<?php echo $id_new?>"><i class="fa fa-edit"></i>Edit</a> - <a href="/hoian/admin/news/delete.php?idNew=<?php echo $id_new?>" title="" onclick="return confirm('Bạn có chắc muốn xóa: <?=$title ?>!!!')"><i class="fa fa-minus-circle"></i>Delete</a></td>
+                  <td><img src="/hoian/uploads/images/news/<?php echo $picture ?>" alt="<?php echo $title ?>" height="80" width="180"></td>
+                  <td><a href="/hoian/admin/news/edit.php?idNew=<?php echo $id_new?>"><i class="fa fa-edit"></i>Sửa</a> - <a href="/hoian/admin/news/delete.php?idNew=<?php echo $id_new?>" title="" onclick="return confirm('Bạn có chắc muốn xóa: <?=$title ?>?')"><i class="fa fa-minus-circle"></i>Xóa</a></td>
               </tr>
               <?php
                 }
