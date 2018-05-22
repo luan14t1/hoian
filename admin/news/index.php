@@ -62,6 +62,7 @@
                   <th>Tiêu đề</th>
                   <th>Danh mục</th>
                   <th>Hình ảnh</th>
+                  <th>Trạng thái</th>
                   <th>Chức năng</th>
               </tr>
               </thead>
@@ -78,6 +79,7 @@
                        $id_cat = $arrNew['id_cat']; 
                        $picture = $arrNew['picture']; 
                        $detail = $arrNew['detail']; 
+                       $status = $arrNew['status']; 
                        $i++;
                        $sql1 = "SELECT * FROM category WHERE id_cat = {$id_cat}";
                        $query1 = $conn->query($sql1);
@@ -89,6 +91,15 @@
                   <td><?php echo $title ?></td>
                   <td><?php echo $name_cat ?></td>
                   <td><img src="/hoian/uploads/images/news/<?php echo $picture ?>" alt="<?php echo $title ?>" height="80" width="180"></td>
+                  <td class="center">
+                    <div id="changeStatus-<?php echo $id_new ?>">
+                    <a href="javascript:void(0)" onclick="return changeStatus(<?php echo $id_new ?>)">
+                      <?php
+                        if($status == 1) echo 'Public' ; else echo 'Private';
+                      ?>
+                    </a>
+                    </div>
+                  </td>
                   <td><a href="/hoian/admin/news/edit.php?idNew=<?php echo $id_new?>"><i class="fa fa-edit"></i>Sửa</a> - <a href="/hoian/admin/news/delete.php?idNew=<?php echo $id_new?>" title="" onclick="return confirm('Bạn có chắc muốn xóa: <?=$title ?>?')"><i class="fa fa-minus-circle"></i>Xóa</a></td>
               </tr>
               <?php
@@ -107,4 +118,25 @@
           </section>
           </section>
       </section>
+
+      <script type="text/javascript">
+      function changeStatus(id){
+            var idData = '#changeStatus-'+id;
+                $.ajax({
+                url: '/hoian/admin/news/changeStatus.php',
+                type: 'POST',
+                cache: false,
+                data: {Aid: id },
+                success: function(data){
+                    $(idData).html(data);
+                }, 
+                error: function() {
+                   alert("Có lỗi");
+                }
+
+              }); 
+               return false;
+        }
+
+    </script>
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/admin/inc/footer.php'; ?>

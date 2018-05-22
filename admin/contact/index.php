@@ -38,6 +38,7 @@
               <table  class="display table table-bordered table-striped" id="table">
               <thead>
               <tr>
+                  <th><input id="checkAll" name="checkAll" type="checkbox" /><button id="btnDel" class="del btn btn-primary hidden" type="submit"><i class="fa fa-trash"></i>Trash</button></th>
                   <th>ID</th>
                   <th>Họ tên</th>
                   <th>Số điện thoại</th>
@@ -62,6 +63,7 @@
                        $i++;
                 ?>
               <tr class="gradeA">
+                  <td><input class="checkbox" name="ids" id="<?= $id_contact ?>" value="<?= $id_contact ?>" type="checkbox" /></td>
                   <td><?php echo $i ?></td>
                   <td><?php echo $fullname ?></td>
                   <td><?php echo $phone ?></td>
