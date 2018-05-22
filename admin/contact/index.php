@@ -34,6 +34,7 @@
                               <?php }
                                   }
                               ?>
+             <div class="panel-body">
               <div class="adv-table">
               <table  class="display table table-bordered table-striped" id="table">
               <thead>
@@ -47,7 +48,7 @@
                   <th>Chức năng</th>
               </tr>
               </thead>
-              <tbody>
+              <tbody id="data">
                  <?php 
                    $sql = "SELECT * FROM contact";
                    $query = $conn->query($sql);
@@ -62,7 +63,7 @@
                        $detail = $arrContact['detail'];  
                        $i++;
                 ?>
-              <tr class="gradeA">
+              <tr class="gradeX">
                   <td><input class="checkbox" name="ids" id="<?= $id_contact ?>" value="<?= $id_contact ?>" type="checkbox" /></td>
                   <td><?php echo $i ?></td>
                   <td><?php echo $fullname ?></td>
@@ -78,6 +79,7 @@
               </tbody>
               </table>
               </div>
+            </div>
               </div>
                </div>
               </section>
@@ -88,3 +90,46 @@
           </section>
       </section>
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/admin/inc/footer.php'; ?>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#checkAll').click(function(event) {
+        if ($(this).prop('checked') == true){
+            $('.checkbox').prop('checked', true);
+        } else {
+            $('.checkbox').prop('checked', false);
+        }
+    });
+    $('input[type="checkbox"]').click(function(){
+        
+        var ids = [];
+        $('input[name=ids]:checked').each ( function(i) {
+            ids[i] = $(this).attr('id');
+        });
+        if (ids.length > 0) {
+            $('.del').removeClass('hidden');
+        }else{
+            $('.del').addClass('hidden');
+        }
+    })  
+    
+    $('#btnDel').click(function(event) {
+        var ids = [];
+        $('input[name=ids]:checked').each ( function(i) {
+            ids[i] = $(this).attr('id');
+        });
+        $.ajax({
+            url: '/hoian/admin/contact/deleteAll.php',
+            type: 'post',
+            data: {
+                ids: ids
+            },
+            success: function( data ) {
+                $('.del').addClass('hidden')
+                //alert("deleted success")
+                $("#data").html(data);
+            }
+        });
+    });
+});
+</script>
