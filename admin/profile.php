@@ -1,11 +1,9 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/admin/inc/header.php'; ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/admin/inc/top_bar.php'; ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/admin/inc/left_bar.php'; ?>
-<?php require_once $_SERVER['DOCUMENT_ROOT'].'/hoian/library/checkUser.php' ?>
 
 <?php
-  if(isset($_GET['idUser'])){
-    $id_user = $_GET['idUser'];
+    $id_user = $userLogin['id_user'];
     $sql = "SELECT * FROM user WHERE id_user = '{$id_user}'";
     $query = $conn->query($sql);
     $user = mysqli_fetch_assoc($query);
@@ -13,31 +11,30 @@
     $fullname = $user['fullname'];
     $email = $user['email'];
     $role = $user['role'];
-  }
-            if(isset($_POST['submit'])){
-              if( empty($_POST['username']) || empty($_POST['fullname']) || empty($_POST['email']) ){
-                  $tb="Nhập vào đầy đủ các trường!";
-        }
+    if(isset($_POST['submit'])){
+      if( empty($_POST['username']) || empty($_POST['fullname']) || empty($_POST['email']) ){
+        $tb="Nhập vào đầy đủ các trường!";
+      }
         
         else {
-          if(isset($_GET['idUser'])){
-            $id_user = $_GET['idUser'];
             $username = $_POST['username'];
             $password = $_POST['password'];
             $repassword = $_POST['repassword'];
             $fullname = $_POST['fullname'];
             $email = $_POST['email'];
             $role = $_POST['role'];
-            if ($role == 1) {
-              $role = "ADMIN";
-            }
-            else 
-              $role = "MOD";
+            if($userLogin['role'] == "ADMIN"){
+              if ($role == 1) {
+                $role = "ADMIN";
+                }
+              else 
+               $role = "MOD";
+            } else $role = "MOD";
             if(empty($password) && empty($repassword)){
               $sql="UPDATE user SET username = '{$username}' ,fullname = '{$fullname}' ,email = '{$email}' , role = '{$role}' WHERE id_user = '{$id_user}'";
                $query = $conn->query($sql);
                 if($query){
-                    header('location: /hoian/admin/user');
+                    header('location: /hoian/admin/profile.php?msg=editsuccess');
                 } 
                 else $tb = "Lỗi sửa thất bại";
             }
@@ -46,12 +43,11 @@
                 $sql="UPDATE user SET username = '{$username}',  password = '{$password}' ,fullname = '{$fullname}' ,email = '{$email}' , role = '{$role}' WHERE id_user = '{$id_user}'";
                 $query = $conn->query($sql);
                 if($query){
-                    header('location: /hoian/admin/user?msg=editsuccess');
+                    header('location: /hoian/admin/profile.php?msg=editsuccess');
                 } 
                 else $tb = "Lỗi sửa thất bại";
             }
             else $tb = "Xác nhận mật khẩu chưa chính xác!";
-        }
     }
   }
 ?>                    
@@ -62,10 +58,21 @@
                 <div class="col-lg-12">
                       <section class="panel">
                           <header class="panel-heading">
-                              Edit user Form
+                              Profile
                           </header>
                           <div class="panel-body">
                             <div class="col-lg-6">
+                               <?php if(isset($_GET['msg'])) { ?>
+                              <?php if($_GET['msg'] == "editsuccess") { ?>
+                              <div class="alert alert-success" role="alert">
+                                  <button data-dismiss="alert" class="close close-sm" type="button">
+                                      <i class="fa fa-times"></i>
+                                  </button>
+                                   Chỉnh sửa thông tin thành công 
+                              </div>
+                              <?php }
+                                }
+                              ?>
                               <?php if(isset($tb)) { ?>
                               <div class="alert alert-block alert-danger fade in">
                                   <button data-dismiss="alert" class="close close-sm" type="button">
@@ -91,6 +98,7 @@
                                       <label for="">Re-Password</label>
                                       <input type="password" class="form-control" id="repassword" name="repassword" placeholder="Re-Password">
                                   </div>
+                                  <?php if($userLogin['role'] == "ADMIN"){ ?>
                                     <div class="form-group">
                                       <label for="">Role</label>
                                       <select name="role" class="form-control m-bot15">
@@ -105,6 +113,7 @@
                                         <?php } ?>
                                       </select>
                                   </div>
+                                <?php } ?>
                                    <div class="form-group">
                                       <label for="">Fullname</label>
                                       <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Enter Fullname" value="<?php echo $fullname?>">
