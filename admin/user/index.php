@@ -1,6 +1,7 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/admin/inc/header.php'; ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/admin/inc/top_bar.php'; ?>
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/admin/inc/left_bar.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'].'/hoian/library/checkUser.php' ?>
 
  <section id="main-content">
           <section class="wrapper">

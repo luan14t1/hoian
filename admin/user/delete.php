@@ -1,4 +1,5 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'].'/hoian/library/ConnectDatabaseLibrary.php' ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'].'/hoian/library/checkUser.php' ?>
 <?php
   if(isset($_GET['idUser'])){
   $id_user = $_GET['idUser'];
