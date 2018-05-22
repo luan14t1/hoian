@@ -61,6 +61,8 @@
                   <th>ID</th>
                   <th>Tiêu đề</th>
                   <th>Danh mục</th>
+                  <th>Ngày đăng</th>
+                  <th>Người đăng</th>
                   <th>Hình ảnh</th>
                   <th>Trạng thái</th>
                   <th>Chức năng</th>
@@ -68,7 +70,7 @@
               </thead>
               <tbody>
                  <?php 
-                   $sql = "SELECT * FROM new";
+                   $sql = "SELECT * FROM new INNER JOIN category ON new.id_cat = category.id_cat INNER JOIN user ON new.id_user = user.id_user";
                    $query = $conn->query($sql);
                    $link = $query->num_rows ;
                    if($link > 0){
@@ -79,17 +81,18 @@
                        $id_cat = $arrNew['id_cat']; 
                        $picture = $arrNew['picture']; 
                        $detail = $arrNew['detail']; 
+                       $name_cat = $arrNew['name'];                    
+                       $name_user = $arrNew['fullname'];
+                       $date = $arrNew['date'];
                        $status = $arrNew['status']; 
                        $i++;
-                       $sql1 = "SELECT * FROM category WHERE id_cat = {$id_cat}";
-                       $query1 = $conn->query($sql1);
-                       $cat = mysqli_fetch_assoc($query1);
-                       $name_cat = $cat['name'];
                 ?>
               <tr class="gradeA">
                   <td><?php echo $i ?></td>
                   <td><?php echo $title ?></td>
                   <td><?php echo $name_cat ?></td>
+                  <td><?php echo $date ?></td>
+                  <td><?php echo $name_user ?></td>
                   <td><img src="/hoian/uploads/images/news/<?php echo $picture ?>" alt="<?php echo $title ?>" height="80" width="180"></td>
                   <td class="center">
                     <div id="changeStatus-<?php echo $id_new ?>">

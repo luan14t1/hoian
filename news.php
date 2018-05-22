@@ -12,6 +12,7 @@
 	$name_user = $news['fullname'];
 	$piture = $news['picture'];
 	$detail = $news['detail'];
+	$date = $news['date'];
   }
 ?> 
 	<div id="my-breadcrumbs" class="">
@@ -71,7 +72,7 @@
 
 										<div class="clearfix date_user">
 											<img src="/hoian/templates/public/assets/img/icon-date.svg" />
-											<span>21-04-2018</span>
+											<span><?php echo $date ?></span>
 											<img src="/hoian/templates/public/assets/img/icon-user.svg" />
 											<span>Người đăng: <?php echo $name_user ?></span>
 										</div>
@@ -173,7 +174,7 @@
 										js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=580130358671180&version=v2.3";
 										fjs.parentNode.insertBefore(js, fjs);
 									}(document, 'script', 'facebook-jssdk'));</script>
-								<div class="fb-comments" data-href="https://hoianimpression.vn:443/event/rat-nhieu-tam-huyet-da-duoc-don-vao-chuong-trinh-ky-uc-hoi-an-102.html"
+								<div class="fb-comments" data-href="https://hoianimpression.vn:443/news.php?idNews=<?php echo $id_news ?>"
 								 data-order-by="reverse_time" data-width="100%" data-numposts="5" data-colorscheme="light"></div>
 
 							</div>
