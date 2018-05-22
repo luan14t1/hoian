@@ -23,7 +23,7 @@
                         </a>
                         <ul class="dropdown-menu extended logout">
                             <div class="log-arrow-up"></div>
-                            <li><a href="/hoian/admin/user/edit.php?idUser=<?php echo $userLogin['id_user']?>"><i class=" fa fa-suitcase"></i>Profile</a></li>
+                            <li><a href="/hoian/admin/profile.php"><i class=" fa fa-suitcase"></i>Profile</a></li>
                             <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
                             <li><a href="#"><i class="fa fa-bell-o"></i> Notification</a></li>
                             <li><a href="/hoian/logout.php"><i class="fa fa-key" onclick="return confirm('Bạn có chắc muốn đăng xuất?')"></i> Log Out</a></li>

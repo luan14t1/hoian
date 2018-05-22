@@ -87,7 +87,7 @@
 								
 								// BƯỚC 5: TRUY VẤN LẤY DANH SÁCH TIN TỨC
 								// Có limit và start rồi thì truy vấn CSDL lấy danh sách tin tức
-								$sql3 = "SELECT * FROM new WHERE id_cat = '{$id_cat}' LIMIT $start, $limit";
+								$sql3 = "SELECT * FROM new WHERE id_cat = '{$id_cat}' && status = 1 LIMIT $start, $limit";
 								$query3 = $conn->query($sql3);
 								$link = $query3->num_rows;
 								if($link > 0){

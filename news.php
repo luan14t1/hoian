@@ -3,7 +3,7 @@
 <?php
   if(isset($_GET['idNews'])){
     $id_news = $_GET['idNews'];
-    $sql = "SELECT * FROM new INNER JOIN category ON new.id_cat = category.id_cat INNER JOIN user ON new.id_user = user.id_user WHERE id_new = '{$id_news}'";
+    $sql = "SELECT * FROM new INNER JOIN category ON new.id_cat = category.id_cat INNER JOIN user ON new.id_user = user.id_user WHERE id_new = '{$id_news}' && status = 1";
     $query = $conn->query($sql);
     $news = mysqli_fetch_assoc($query);
 	$title = $news['title'];
