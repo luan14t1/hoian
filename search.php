@@ -36,81 +36,12 @@
 				<div class="container">
 				<div class="sb-search right5">
 				<label for="">Nhập tiêu đề bài viết cần tìm:</label>
-				<form class="" method="post" >
-								
-    				<input class="sb-search-input "  placeholder="Tìm kiếm ..."  type="text" value="" name="search" id="search">
-    				<button type="submit"><i class="fa fa-search"></i></button>
-    									
-    			</form>
+				<div class="form-group">
+    				<input class="form-control" placeholder="Tìm kiếm ..."  type="text" id="search" name="search">
+    			</div>
 				</div><br/>
-
-		<?php
-        if(isset($_POST['submit'])){
-            if( empty($_POST['search'])){
-                $tb="Nhập vào từ khóa cần tìm!";
-        		}
-
-        	else {
-
-		?>
-		<div class="adv-table">
-            <table  class="display table table-bordered table-striped" id="table">
-              <thead>
-              <tr>
-                  <th>ID</th>
-                  <th>Tiêu đề</th>
-                  <th>Danh mục</th>
-                  <th>Ngày đăng</th>
-                  <th>Người đăng</th>
-                  <th>Hình ảnh</th>
-                  
-              </tr>
-              </thead>
-              <tbody>
-
-		<?php
-			$key = $_POST['search'];
-			$key2 = '%' + $key + '%';
-            $sql = "SELECT * FROM new INNER JOIN category ON new.id_cat = category.id_cat INNER JOIN user ON new.id_user = user.id_user WHERE title LIKE '{$key2}' ";
-            $query = $conn->query($sql);
-            $link = $query->num_rows ;
-            if($link > 0){
-                $i = 0;
-                while($arrNew = mysqli_fetch_assoc($query)){
-                $id_new = $arrNew['id_new']; 
-                $title = $arrNew['title'];                     
-                $id_cat = $arrNew['id_cat']; 
-                $picture = $arrNew['picture']; 
-                $detail = $arrNew['detail']; 
-                $name_cat = $arrNew['name'];                    
-                $name_user = $arrNew['fullname'];
-                $date = $arrNew['date'];
-                $i++;
-        
-		?>
-			<tr class="gradeA">
-                  <td><?php echo $i ?></td>
-                  <td><?php echo $title ?></td>
-                  <td><?php echo $name_cat ?></td>
-                  <td><?php echo $date ?></td>
-                  <td><?php echo $name_user ?></td>
-                  <td><img src="/hoian/uploads/images/news/<?php echo $picture ?>" alt="<?php echo $title ?>" height="80" width="180"></td>
-                 
-            </tr>
-			<?php
-                }
-			}
-		}}
-        ?>
-
-				
-					
-								<div class="clearfix"></div>
-
-
-							</div>
-
-						</div>
+	            <div class="row" id="data">
+				</div>
 
 					</div>
 
@@ -130,5 +61,22 @@
 
 	</div>
 </div>
+<script type="text/javascript">
+$(document).ready(function() {
+$("#search").keyup(function(){
+      var key = $("#search").val();
+      $.ajax({
+        url: 'searchController.php',
+        type: 'post',
+        data: {
+            key: key
+        },
+        success: function( data ) {
+            $("#data").html(data);
+        }
+        });
+    })
 
+});
+</script>
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/public/inc/footer.php'; ?>

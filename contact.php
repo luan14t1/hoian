@@ -75,30 +75,33 @@
                                     <div class="title">Liên hệ chúng tôi</div>
                                     <div class="fix-title">
                                         <div style="width:100%;">
-                                            <div style="width:7%;float:left;">
-                                                <strong></strong>
+                                            <div style="width:50%;float:left;">
+                                                <strong>Địa chỉ:</strong>
                                             </div>
 
                                             <div style="width:92%;float:left;"> Phố cổ Hội An</div>
                                         </div>
 
                                         <div style="width:100%;">
-                                            <div style="width:20%;float:left;">
-                                                <strong></strong>
+                                            <div style="width:50%;float:left;">
+                                                <strong>Hotline:</strong>
                                             </div>
 
-                                            <div style="width:80%;float:left;">Hotline: 1900 10000</div>
+                                            <div style="width:80%;float:left;"> 1900 10000</div>
                                         </div>
 
                                         <div style="width:100%;">
-                                            <div style="width:7%;float:left;">
-                                                <strong></strong>
+                                            <div style="width:50%;float:left;">
+                                                <strong>Email:</strong>
                                             </div>
 
                                             <div style="width:92%;float:left;"> info@14T1.com</div>
 
                                             <div style="width:92%;float:left;">
-                                                <strong>Người liên lạc</strong>: Trần Nguyễn Thành Luân - Giám đốc truyền thông (Mobile:&nbsp;0906008368)</div>
+                                                <strong>Người liên lạc:</strong>
+                                              </div>
+                                              <div style="width:80%;float:left;"> Trần Nguyễn Thành Luân - Giám đốc truyền thông (Mobile:&nbsp;0906008368)</div>
+                                                
 
                                             <div style="width:92%;float:left;">&nbsp;</div>
 
@@ -124,7 +127,7 @@
                                         Gửi liên hệ thành công 
                                         </div>
                                     <?php } }?>
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                               <?php if(isset($tb)) { ?>
                               <div class="alert alert-block alert-danger fade in">
                                   <button data-dismiss="alert" class="close close-sm" type="button">
@@ -173,32 +176,4 @@
 
     </div>
 </div>
-
-<<<<<<< HEAD
-
-=======
-<?php
-            if(isset($_POST['submit'])){
-              if( empty($_POST['fullname']) || empty($_POST['phone']) || empty($_POST['email']) ||  empty($_POST['detail']) ){
-                  $tb="Nhập vào đầy đủ các trường!";
-        }
-        
-        else {
-            $fullname = $_POST['fullname'];
-            $phone = $_POST['phone'];
-            $email = $_POST['email'];
-            $detail = $_POST['detail'];
-            
-           
-            $sql="INSERT INTO contact(fullname,phone,email,detail) VALUES('{$fullname}','{$phone}','{$email}','{$detail}')";
-            $query = $conn->query($sql);
-            if($query){
-                header('location: /hoian/contact');
-            } 
-            else $tb = "Lỗi Thêm thất bại";     
-        }
-    }
-    ?>
->>>>>>> 87260806def133f9e0ac71b8b4f429fa59f87261
-
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/public/inc/footer.php'; ?>
