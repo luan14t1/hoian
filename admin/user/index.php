@@ -87,7 +87,7 @@
                   <td><?php echo $email ?></td>
                   <td><?php echo $fullname ?></td>
                   <td><?php echo $role ?></td>
-                  <td><a href="/hoian/admin/user/edit.php?idUser=<?php echo $id_user?>"><i class="fa fa-edit"></i>Edit</a> - <a href="/hoian/admin/user/delete.php?idUser=<?php echo $id_user?>" title="" onclick="return confirm('Bạn có chắc muốn xóa: <?=$username ?>!!!')"><i class="fa fa-minus-circle"></i>Delete</a></td>
+                  <td><a href="/hoian/admin/user/edit.php?idUser=<?php echo $id_user?>"><i class="fa fa-edit"></i>Edit</a> - <a href="/hoian/admin/user/delete.php?idUser=<?php echo $id_user?>" title="" onclick="return confirm('Bạn có chắc muốn xóa: <?=$username ?>!!!')" id="del"><i class="fa fa-minus-circle"></i>Delete</a></td>
 
               </tr>
               <?php

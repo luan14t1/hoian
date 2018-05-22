@@ -54,7 +54,5 @@
             else {
                 $userLogin = $_SESSION['user'];
             }
-
-
         ?>
   <section id="container" >

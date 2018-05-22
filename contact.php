@@ -174,6 +174,31 @@
     </div>
 </div>
 
+<<<<<<< HEAD
 
+=======
+<?php
+            if(isset($_POST['submit'])){
+              if( empty($_POST['fullname']) || empty($_POST['phone']) || empty($_POST['email']) ||  empty($_POST['detail']) ){
+                  $tb="Nhập vào đầy đủ các trường!";
+        }
+        
+        else {
+            $fullname = $_POST['fullname'];
+            $phone = $_POST['phone'];
+            $email = $_POST['email'];
+            $detail = $_POST['detail'];
+            
+           
+            $sql="INSERT INTO contact(fullname,phone,email,detail) VALUES('{$fullname}','{$phone}','{$email}','{$detail}')";
+            $query = $conn->query($sql);
+            if($query){
+                header('location: /hoian/contact');
+            } 
+            else $tb = "Lỗi Thêm thất bại";     
+        }
+    }
+    ?>
+>>>>>>> 87260806def133f9e0ac71b8b4f429fa59f87261
 
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/public/inc/footer.php'; ?>

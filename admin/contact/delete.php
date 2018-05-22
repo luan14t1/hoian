@@ -5,7 +5,7 @@
   $sql = "DELETE FROM contact WHERE id_contact = {$id_contact}";
   echo $sql;
   $query = $conn->query($sql);
-  if(!$query)
+  if($query)
   	header("Location: /hoian/admin/contact?msg=delsuccess");
   else
   	header("Location: /hoian/admin/contact?msg=delerror");
