@@ -151,10 +151,7 @@
 								Thể loại </div>
 							<div class="recover-list-menu">
 								<ul>
-									<li >
-										<a href="">
-											<i class="fa fa-angle-right"></i>&nbsp; Tất cả</a>
-									</li>
+									
 									<li class='active'>
 										<a href="cat.php?idCat=<?php echo $id_cat ?>" title="<?php echo $name_cat ?>">
 											<i class="fa fa-angle-right"></i></i>&nbsp; <?php echo $name_cat ?></a>

@@ -10,7 +10,7 @@
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
     <link rel="shortcut icon" href="img/favicon.html">
 
-    <title>HOI_AN - ADMIN</title>
+    <title>Ấn tượng Hội An | Login</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/hoian/templates/admin/css/bootstrap.min.css" rel="stylesheet">
@@ -49,7 +49,7 @@
     <div class="container">
  
       <form class="form-signin" action="" method="post">
-        <h2 class="form-signin-heading">sign in now</h2>
+        <h2 class="form-signin-heading">Login</h2>
         <?php if(isset($msg)) {?>
                     <div class="alert alert-danger" role="alert">
                                   <button data-dismiss="alert" class="close close-sm" type="button">
@@ -62,7 +62,7 @@
             <input type="text" class="form-control" placeholder="Username" name="username">
             <input type="password" class="form-control" placeholder="Password" name="password">
             
-            <button class="btn btn-lg btn-login btn-block" type="submit" name="submit">Sign in</button>
+            <button class="btn btn-lg btn-login btn-block" type="submit" name="submit">Đăng nhập</button>
             
             <div style="margin-left: 42px; ">
                 Quay lại trang chủ

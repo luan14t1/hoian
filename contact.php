@@ -176,4 +176,5 @@
 
     </div>
 </div>
+
 <?php require_once $_SERVER['DOCUMENT_ROOT']. '/hoian/templates/public/inc/footer.php'; ?>
