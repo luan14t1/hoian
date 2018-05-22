@@ -42,6 +42,7 @@
                   <th>Họ tên</th>
                   <th>Số điện thoại</th>
                   <th>Email</th>
+                  <th>Ngày gửi</th>
                   <th>Tin nhắn</th>
                   <th>Chức năng</th>
               </tr>
@@ -58,7 +59,8 @@
                        $fullname = $arrContact['fullname'];                     
                        $phone = $arrContact['phone']; 
                        $email = $arrContact['email'];
-                       $detail = $arrContact['detail'];  
+                       $detail = $arrContact['detail']; 
+                       $date_send = $arrContact['date_send']; 
                        $i++;
                 ?>
               <tr class="gradeA">
@@ -66,6 +68,7 @@
                   <td><?php echo $fullname ?></td>
                   <td><?php echo $phone ?></td>
                   <td><?php echo $email ?></td>
+                  <td><?php echo $date_send ?></td>
                   <td><?php echo $detail ?></td>
                   <td><a href="/hoian/admin/contact/delete.php?idContact=<?php echo $id_contact?>"title="" onclick="return confirm('Bạn có chắc muốn xóa?')"><i class="fa fa-minus-circle"></i>Delete</a></td>
               </tr>

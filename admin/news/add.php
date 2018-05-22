@@ -13,6 +13,7 @@
             $detail = $_POST['detail'];
             $id_cat = $_POST['id_cat'];
             $id_user = $userLogin['id_user'];
+            $date = date('d/m/Y');
             if( empty($_FILES["picture"]["tmp_name"]) ){
                 $file_name = "123";
             } else{
@@ -24,7 +25,7 @@
                 $filePath = $_SERVER['DOCUMENT_ROOT'].'/hoian/uploads/images/news/'.$file_name;
                 $result = move_uploaded_file($filetmp,$filePath) or die("Upload không thành công"); //('đường dẫn tạm','đường dẫn lưu file');
             } 
-            $sql="INSERT INTO new(title,id_cat,picture,detail,id_user) VALUES('{$title}','{$id_cat}','{$file_name}','{$detail}' ,'{$id_user}')";
+            $sql="INSERT INTO new(title,id_cat,picture,detail,id_user,date) VALUES('{$title}','{$id_cat}','{$file_name}','{$detail}' ,'{$id_user}','{$date}')";
             $query = $conn->query($sql);
             if($query){
               header('location: /hoian/admin/news?msg=addsuccess');

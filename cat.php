@@ -85,51 +85,7 @@
                 						}
              						}
              					 ?>
-								<!-- <div class="col-md-4 col-xs-12">
-									<div class="item-mini">
-										<div class="img">
-											<a href="event/5-trai-nghiem-khong-the-bo-lo-khi-kham-pha-hoi-an-97.html" title="5 trải nghiệm không thể bỏ lỡ khi khám phá Hội An">
-												<img src="thumb/760x435/1/upload/news/5-trai-nghiem-khong-the-bo-lo-khi-kham-pha-hoi-an.jpg" title="5 trải nghiệm không thể bỏ lỡ khi khám phá Hội An"
-												/>
-											</a>
-										</div>
-										<div class="desc">
-											<h2>
-												<a href="event/5-trai-nghiem-khong-the-bo-lo-khi-kham-pha-hoi-an-97.html" title="5 trải nghiệm không thể bỏ lỡ khi khám phá Hội An">5 trải nghiệm không thể bỏ lỡ khi khám phá Hội An</a>
-											</h2>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-4 col-xs-12">
-									<div class="item-mini">
-										<div class="img">
-											<a href="event/5-trai-nghiem-khong-the-bo-lo-khi-kham-pha-hoi-an-97.html" title="5 trải nghiệm không thể bỏ lỡ khi khám phá Hội An">
-												<img src="thumb/760x435/1/upload/news/5-trai-nghiem-khong-the-bo-lo-khi-kham-pha-hoi-an.jpg" title="5 trải nghiệm không thể bỏ lỡ khi khám phá Hội An"
-												/>
-											</a>
-										</div>
-										<div class="desc">
-											<h2>
-												<a href="event/5-trai-nghiem-khong-the-bo-lo-khi-kham-pha-hoi-an-97.html" title="5 trải nghiệm không thể bỏ lỡ khi khám phá Hội An">5 trải nghiệm không thể bỏ lỡ khi khám phá Hội An</a>
-											</h2>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-4 col-xs-12">
-									<div class="item-mini">
-										<div class="img">
-											<a href="event/5-trai-nghiem-khong-the-bo-lo-khi-kham-pha-hoi-an-97.html" title="5 trải nghiệm không thể bỏ lỡ khi khám phá Hội An">
-												<img src="thumb/760x435/1/upload/news/5-trai-nghiem-khong-the-bo-lo-khi-kham-pha-hoi-an.jpg" title="5 trải nghiệm không thể bỏ lỡ khi khám phá Hội An"
-												/>
-											</a>
-										</div>
-										<div class="desc">
-											<h2>
-												<a href="event/5-trai-nghiem-khong-the-bo-lo-khi-kham-pha-hoi-an-97.html" title="5 trải nghiệm không thể bỏ lỡ khi khám phá Hội An">5 trải nghiệm không thể bỏ lỡ khi khám phá Hội An</a>
-											</h2>
-										</div>
-									</div>
-								</div> -->
+						
 								<div class="clearfix"></div>
 
 

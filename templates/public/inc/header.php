@@ -80,7 +80,7 @@
 <link href="/hoian/templates/public/assets/css/xx.css" type="text/css" rel="stylesheet" />
 <link href="/hoian/templates/public/assets/css/contact.css" type="text/css" rel="stylesheet"/>
 <link href="/hoian/templates/public/assets/css/event.css" type="text/css" rel="stylesheet"/>
-<link rel="stylesheet/less" type="text/css" href="/hoian/templates/public/assets/css/news.less">
+<link rel="stylesheet/less" type="text/css" href="/hoian/templates/public/assets/css/less/news.less">
 <link href="/hoian/templates/public/assets/css/news.css" type="text/css" rel="stylesheet" />
 
 <!-- Google Tag Manager -->
@@ -169,16 +169,18 @@ header .top-search .dropdown button {
 					
 					<div class="button_search">
     					<span class="rel">
-    						<a class="dangky-dangnhap show-search-form" href="javascript:toggleSearch()"><img src="/hoian/templates/public/assets/img/icon-search.svg" style="width: 1em;"></a>
+    						<a class="dangky-dangnhap show-search-form" href="search.php"> <!--javascript:toggleSearch() -->
+								<img src="/hoian/templates/public/assets/img/icon-search.svg" style="width: 1em;">
+							</a>
     						
-    							<div id="sb-search" class="sb-search right5" style="padding: 0 15px;">
-    									<form class="cform" name="searchForm" method="post" autocomplete="off">
+    							<!-- <div id="sb-search" class="sb-search right5" style="padding: 0 15px;">
+    								<form class="cform" name="searchForm" method="post" autocomplete="off">
     									
-    											<input class="sb-search-input "  placeholder="Tìm kiếm ..."  type="text" value="" name="search" id="search">
-    											<button type="submit"><i class="fa fa-search"></i></button>
+    									<input class="sb-search-input "  placeholder="Tìm kiếm ..."  type="text" value="" name="search" id="search">
+    									<button type="submit"><i class="fa fa-search"></i></button>
     									
-    									</form>
-    								</div>
+    								</form>
+    							</div> -->
     						
     					</span>
     				</div>
@@ -207,24 +209,6 @@ header .top-search .dropdown button {
      </div>
      </div>
        
-   <div id="responsive-menu">
-	<div class="search-mobile">
-		<form class="cform" name="searchForm" method="post" autocomplete="off">
-		
-				<input class="sb-search-input "  placeholder="Tìm kiếm ..."  type="text" value="" name="search" id="search">
-				<button type="submit"><img src="/hoian/templates/public/assets/img/icon-search.svg" style="width: 1em;"></button>
-		
-		</form>
-	</div>
-	<div class='toggle-search toggle' data-for="content">
-		<span>MENU</span><i class="fa fa-angle-down pull-right"></i><div class="clearfix"></div>
-	</div>
-	<div class="content"></div>	
-	<div class="login-link">
-		<a href="/hoian/admin" target="_blank">Đăng nhập</a>
-	</div>
-		
-	</div>	
 	<div class="clearfix"></div>
 </div>
 	
