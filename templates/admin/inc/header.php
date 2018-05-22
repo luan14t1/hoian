@@ -13,8 +13,8 @@
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
     <link rel="shortcut icon" href="img/favicon.html">
 
-    <title>HOI_AN - ADMIN</title>
-
+    <title>Ấn tượng Hội An | Trang Admin</title>
+    <link rel="shortcut icon" type="image/ico" href="/hoian/templates/public/assets/img/hoian-icons.png" />
     <!-- Bootstrap core CSS -->
     <link href="/hoian/templates/admin/css/bootstrap.min.css" rel="stylesheet">
     <link href="/hoian/templates/admin/css/bootstrap-reset.css" rel="stylesheet">
@@ -35,6 +35,7 @@
 
     <link href="/hoian/templates/admin/css/style.css" rel="stylesheet">
     <link href="/hoian/templates/admin/css/style-responsive.css" rel="stylesheet" />
+    <script src="//cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
 
 
 

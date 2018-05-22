@@ -6,50 +6,24 @@
 					<a href=""><img src="/hoian/templates/public/assets/img/logo-hoian-15.png" alt="Logo" /></a>
 				</div>
 				<div class="slogan">
-					Công viên văn hoá chủ đề Ấn Tượng Hội An				</div>
+				© 2018 Website giới thiệu Hội An<br/>All rights reserved | Design by Quang & Luân				
+				</div>
 				</div>
 				<div class="pull-right info">
 				
-					<div class="info_item"><i class="fa fa-map-marker"></i><div class="info_diachi">Cồn Hến (200 Nguyễn Tri Phương rẽ trái), Cẩm Nam, Hội An </div></div>
-					<div class="info_item"><i class="fa fa-phone"></i>1900 636600 </div>
-					<div class="info_item"><i class="fa fa-facebook-official"></i>&nbsp;<a href="https://facebook.com/antuonghoian" target="_blank" title="facebook">antuonghoian</a></div>
+					<div class="info_item"><i class="fa fa-map-marker"></i><div class="info_diachi">Phố cổ Hội An</div></div>
+					<div class="info_item"><i class="fa fa-phone"></i>1900 100có </div>
+					<div class="info_item"><i class="fa fa-facebook-official"></i>&nbsp;<a href="https://www.facebook.com/quangnk23496" target="_blank" title="facebook">antuonghoian</a></div>
 
 					<!--<div class="info_item"><i class="fa fa-facebook-official"></i>&nbsp;<a href="antuonghoian" target="_blank" title="facebook">antuonghoian</a></div>-->
 					<br/><br/>
-					<a href="http://www.hoianimpression.vn/contact.html" class="google-map">Google Map</a>
+					<a href="map.php" class="google-map">Google Map</a>
 					
 				
 				</div>
 				<div class="clearfix"></div>
-
 		</div>
-		
-		<div class="row visible-sm visible-xs">
-				<div class="col-xs-12 col-md-12">
-					<div class="col-xs-4">
-						<div class="logo">
-							<a href=""><img src="/hoian/templates/public/assets/img/logo-hoian-15.png" alt="Logo" /></a>
-						</div>
-					</div>
-					<div class="col-xs-8">
-						<div class="slogan">
-							Công viên văn hoá chủ đề Ấn Tượng Hội An						</div>
-						<div class="pull-left info">
-							<div class="info_item"><i class="fa fa-map-marker"></i><div class="info_diachi">Cồn Hến (200 Nguyễn Tri Phương rẽ trái), Cẩm Nam, Hội An </div></div>
-							<div class="info_item"><i class="fa fa-phone"></i>1900 636600 </div>
-							<div class="info_item"><i class="fa fa-facebook-official"></i>&nbsp;<a href="https://facebook.com/antuonghoian" target="_blank" title="facebook">antuonghoian</a></div>
-							
-							<!--<div class="info_item"><i class="fa fa-facebook-official"></i>&nbsp;<a href="https://www.facebook.com/boconganh.net.vn" target="_blank" title="facebook">antuonghoian</a></div>-->
-							<br/><br/>
-							<a href="http://www.hoianimpression.vn/contact.html" class="google-map">Google Map</a>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-				</div>
-		</div>
-
-	</div>
-	
+	</div>	
 </footer>	
 	
 		

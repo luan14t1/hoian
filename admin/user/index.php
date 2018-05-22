@@ -9,7 +9,7 @@
                 <div class="col-sm-12">
               <section class="panel">
               <header class="panel-heading">
-                  User Table
+                  Danh sách users
              <span class="tools pull-right">
                 <a href="javascript:;" class="fa fa-chevron-down"></a>
                 <a href="javascript:;" class="fa fa-times"></a>
@@ -17,7 +17,7 @@
               </header>
               <div class="panel-body">
                  <a class="btn green" href="/hoian/admin/user/add.php">
-                 Add New <i class="fa fa-plus"></i></a>
+                 Thêm user <i class="fa fa-plus"></i></a>
               </button>
                  <?php if(isset($_GET['msg'])) { ?>
                               <?php if($_GET['msg'] == "addsuccess") { ?>
@@ -55,7 +55,7 @@
                                   }
                               ?>
               <div class="adv-table">
-              <table  class="display table table-bordered table-striped" id="dynamic-table">
+              <table  class="display table table-bordered table-striped" id="table">
               <thead>
               <tr>
                   <th>ID</th>

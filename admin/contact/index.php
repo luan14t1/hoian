@@ -35,7 +35,7 @@
                                   }
                               ?>
               <div class="adv-table">
-              <table  class="display table table-bordered table-striped" id="dynamic-table">
+              <table  class="display table table-bordered table-striped" id="table">
               <thead>
               <tr>
                   <th>ID</th>
